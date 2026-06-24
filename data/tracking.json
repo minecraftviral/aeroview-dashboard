@@ -10,7 +10,8 @@
     "time": "2026-06-22T19:02:07.598Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-06-24T15:02:25.632Z"
   },
   {
     "name": "Civil-Surv Land Surveying, L.L.C.",
@@ -23,7 +24,8 @@
     "time": "2026-06-22T19:08:12.727Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-06-24T15:02:28.826Z"
   },
   {
     "name": "GGC Survey, PLLC",
@@ -36,7 +38,8 @@
     "time": "2026-06-22T19:10:35.733Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-06-24T15:02:32.015Z"
   },
   {
     "name": "New Era Development & Land Services | Replatting | Platting | Plat |",
