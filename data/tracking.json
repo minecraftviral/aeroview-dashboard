@@ -52,7 +52,8 @@
     "time": "2026-06-23T17:47:20.152Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-06-25T15:02:51.649Z"
   },
   {
     "name": "Stiver Engineering",
@@ -65,7 +66,8 @@
     "time": "2026-06-23T17:53:07.461Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-06-25T15:06:30.789Z"
   },
   {
     "name": "LJA Engineering, Inc.",
@@ -78,6 +80,7 @@
     "time": "2026-06-23T17:58:15.216Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-06-25T15:08:35.603Z"
   }
 ]
