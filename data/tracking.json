@@ -11,7 +11,9 @@
     "replied": false,
     "status": "sent",
     "followedUp": true,
-    "followUpDate": "2026-06-24T15:02:25.632Z"
+    "followUpDate": "2026-06-24T15:02:25.632Z",
+    "followedUp2": true,
+    "followUpDate2": "2026-06-29T15:02:06.538Z"
   },
   {
     "name": "Civil-Surv Land Surveying, L.L.C.",
@@ -25,7 +27,9 @@
     "replied": false,
     "status": "sent",
     "followedUp": true,
-    "followUpDate": "2026-06-24T15:02:28.826Z"
+    "followUpDate": "2026-06-24T15:02:28.826Z",
+    "followedUp2": true,
+    "followUpDate2": "2026-06-29T15:07:58.753Z"
   },
   {
     "name": "GGC Survey, PLLC",
@@ -39,7 +43,9 @@
     "replied": false,
     "status": "sent",
     "followedUp": true,
-    "followUpDate": "2026-06-24T15:02:32.015Z"
+    "followUpDate": "2026-06-24T15:02:32.015Z",
+    "followedUp2": true,
+    "followUpDate2": "2026-06-29T15:10:29.658Z"
   },
   {
     "name": "New Era Development & Land Services | Replatting | Platting | Plat |",
@@ -53,7 +59,9 @@
     "replied": false,
     "status": "sent",
     "followedUp": true,
-    "followUpDate": "2026-06-25T15:02:51.649Z"
+    "followUpDate": "2026-06-25T15:02:51.649Z",
+    "followedUp2": true,
+    "followUpDate2": "2026-06-29T15:16:29.332Z"
   },
   {
     "name": "Stiver Engineering",
@@ -67,7 +75,9 @@
     "replied": false,
     "status": "sent",
     "followedUp": true,
-    "followUpDate": "2026-06-25T15:06:30.789Z"
+    "followUpDate": "2026-06-25T15:06:30.789Z",
+    "followedUp2": true,
+    "followUpDate2": "2026-06-29T15:21:19.301Z"
   },
   {
     "name": "LJA Engineering, Inc.",
@@ -81,6 +91,8 @@
     "replied": false,
     "status": "sent",
     "followedUp": true,
-    "followUpDate": "2026-06-25T15:08:35.603Z"
+    "followUpDate": "2026-06-25T15:08:35.603Z",
+    "followedUp2": true,
+    "followUpDate2": "2026-06-29T15:25:05.812Z"
   }
 ]
