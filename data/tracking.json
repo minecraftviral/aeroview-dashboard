@@ -94,5 +94,83 @@
     "followUpDate": "2026-06-25T15:08:35.603Z",
     "followedUp2": true,
     "followUpDate2": "2026-06-29T15:25:05.812Z"
+  },
+  {
+    "name": "Burns & McDonnell",
+    "email": "kbray@burnsmcd.com",
+    "industry": "civil engineering firms",
+    "subject": "Deliver accurate site datasets faster",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-06-30",
+    "time": "2026-06-30T15:03:24.957Z",
+    "replied": false,
+    "status": "sent",
+    "followedUp": false
+  },
+  {
+    "name": "Texas General Contractors",
+    "email": "tgc@texasgeneral.com",
+    "industry": "general contractors",
+    "subject": "Keep stakeholders informed with aerial site data",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-06-30",
+    "time": "2026-06-30T15:09:01.069Z",
+    "replied": false,
+    "status": "sent",
+    "followedUp": false
+  },
+  {
+    "name": "Houston's Preferred Contractors",
+    "email": "alfonso@houstonspreferredcontractors.com",
+    "industry": "general contractors",
+    "subject": "From drone capture to 3D model in 48 hours",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-06-30",
+    "time": "2026-06-30T15:15:02.852Z",
+    "replied": false,
+    "status": "sent",
+    "followedUp": false
+  },
+  {
+    "name": "Texas Sterling Construction Co.",
+    "email": "contacttsc@strlco.com",
+    "industry": "construction companies",
+    "subject": "Keep stakeholders informed with aerial site data",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-06-30",
+    "time": "2026-06-30T15:19:07.985Z",
+    "replied": false,
+    "status": "sent",
+    "followedUp": false
+  },
+  {
+    "name": "Turner Construction",
+    "email": "turner@tcco.com",
+    "industry": "construction companies",
+    "subject": "Document your project progress with drone mapping",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-06-30",
+    "time": "2026-06-30T15:22:28.368Z",
+    "replied": false,
+    "status": "sent",
+    "followedUp": false
+  },
+  {
+    "name": "A1 Construction Services",
+    "email": "a1sales@a1sp.com",
+    "industry": "construction companies",
+    "subject": "From drone capture to 3D model in 48 hours",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-06-30",
+    "time": "2026-06-30T15:25:02.411Z",
+    "replied": false,
+    "status": "sent",
+    "followedUp": false
   }
 ]
