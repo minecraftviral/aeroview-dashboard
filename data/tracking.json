@@ -172,5 +172,31 @@
     "replied": false,
     "status": "sent",
     "followedUp": false
+  },
+  {
+    "name": "Tetra Land Services",
+    "email": "jvn@tlstx.com",
+    "industry": "land surveying companies",
+    "subject": "Deliver accurate site datasets faster",
+    "format": "A",
+    "window": "PM",
+    "date": "2026-07-01",
+    "time": "2026-07-01T15:03:36.818Z",
+    "replied": false,
+    "status": "sent",
+    "followedUp": false
+  },
+  {
+    "name": "DirtWirx",
+    "email": "getinfo@dirtwirx.com",
+    "industry": "earthworks excavation contractors",
+    "subject": "From drone capture to 3D model in 48 hours",
+    "format": "A",
+    "window": "PM",
+    "date": "2026-07-01",
+    "time": "2026-07-01T15:10:54.496Z",
+    "replied": false,
+    "status": "sent",
+    "followedUp": false
   }
 ]
