@@ -106,7 +106,8 @@
     "time": "2026-06-30T15:03:24.957Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-07-02T15:02:20.773Z"
   },
   {
     "name": "Texas General Contractors",
@@ -119,7 +120,8 @@
     "time": "2026-06-30T15:09:01.069Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-07-02T15:06:59.157Z"
   },
   {
     "name": "Houston's Preferred Contractors",
@@ -132,7 +134,8 @@
     "time": "2026-06-30T15:15:02.852Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-07-02T15:13:00.910Z"
   },
   {
     "name": "Texas Sterling Construction Co.",
@@ -145,7 +148,8 @@
     "time": "2026-06-30T15:19:07.985Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-07-02T15:15:54.690Z"
   },
   {
     "name": "Turner Construction",
@@ -158,7 +162,8 @@
     "time": "2026-06-30T15:22:28.368Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-07-02T15:21:06.596Z"
   },
   {
     "name": "A1 Construction Services",
@@ -171,7 +176,8 @@
     "time": "2026-06-30T15:25:02.411Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-07-02T15:26:23.981Z"
   },
   {
     "name": "Tetra Land Services",
