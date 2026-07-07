@@ -202,7 +202,8 @@
     "time": "2026-07-01T15:03:36.818Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-07-07T15:02:53.058Z"
   },
   {
     "name": "DirtWirx",
@@ -215,6 +216,7 @@
     "time": "2026-07-01T15:10:54.496Z",
     "replied": false,
     "status": "sent",
-    "followedUp": false
+    "followedUp": true,
+    "followUpDate": "2026-07-07T15:05:55.016Z"
   }
 ]
