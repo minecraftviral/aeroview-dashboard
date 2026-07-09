@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aeroview Drone Technologies — Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #f6f8fa; --surface: #ffffff; --border: #e1e4e8; --text: #1c2128; --muted: #656d76;
+    --accent: #1a7f37; --accent-blue: #0969da; --accent-purple: #8250df; --warm: #9a6700;
+    --danger: #cf222e; --radius: 6px;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --shadow: 0 1px 3px rgba(27,31,36,0.07);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; font-size: 14px; }
+  #gate { display:flex; align-items:center; justify-content:center; min-height:100vh; flex-direction:column; gap:14px; background:var(--bg); }
+  #gate img { height:52px; margin-bottom:4px; }
+  #gate h2 { font-size:0.95rem; color:var(--muted); font-weight:500; }
+  #gate input { padding:8px 12px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.95rem; width:240px; box-shadow:var(--shadow); }
+  #gate input:focus { outline:2px solid var(--accent-blue); outline-offset:1px; }
+  #gate button { padding:8px 24px; border-radius:var(--radius); border:1px solid rgba(27,31,36,0.15); background:var(--accent-blue); color:#fff; font-size:0.9rem; cursor:pointer; font-weight:500; }
+  #gate .error { color:var(--danger); font-size:0.82rem; }
+  #app { display:none; }
+  header { background:var(--surface); border-bottom:1px solid var(--border); padding:12px 32px; display:flex; align-items:center; justify-content:space-between; }
+  header img { height:34px; }
+  .header-right { display:flex; align-items:center; gap:20px; }
+  #last-updated { font-size:0.78rem; color:var(--muted); }
+  header a { font-size:0.82rem; color:var(--accent-blue); text-decoration:none; }
+  header a:hover { text-decoration:underline; }
+  .container { max-width:1080px; margin:0 auto; padding:24px 20px; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:24px; }
+  .stat-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px 20px; box-shadow:var(--shadow); }
+  .stat-card .val { font-size:1.9rem; font-weight:600; line-height:1; margin-bottom:5px; color:var(--text); }
+  .stat-card .val.blue { color:var(--accent-blue); }
+  .stat-card .val.green { color:var(--accent); }
+  .stat-card .lbl { font-size:0.78rem; color:var(--muted); }
+  section { margin-bottom:24px; }
+  section > h2 { font-size:0.95rem; font-weight:600; margin-bottom:12px; color:var(--text); }
+  .pipeline { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .pipe-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; text-align:center; box-shadow:var(--shadow); }
+  .pipe-card.highlight { background:var(--accent-blue); border-color:var(--accent-blue); }
+  .pipe-card .pval { font-size:1.7rem; font-weight:600; color:var(--text); }
+  .pipe-card.highlight .pval { color:#fff; }
+  .pipe-card .plbl { font-size:0.75rem; color:var(--muted); margin-top:3px; }
+  .pipe-card.highlight .plbl { color:rgba(255,255,255,0.8); }
+  .perf-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .perf-table { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+  .perf-table h3 { font-size:0.8rem; font-weight:600; padding:12px 14px; border-bottom:1px solid var(--border); color:var(--muted); }
+  .perf-table table { width:100%; border-collapse:collapse; }
+  .perf-table th { font-size:0.72rem; color:var(--muted); padding:7px 14px; text-align:right; text-transform:uppercase; letter-spacing:.04em; background:var(--bg); border-bottom:1px solid var(--border); }
+  .perf-table th:first-child { text-align:left; }
+  .perf-table td { padding:9px 14px; font-size:0.88rem; border-top:1px solid var(--border); text-align:right; }
+  .perf-table td:first-child { text-align:left; font-weight:500; }
+  .rate-val { color:var(--accent-blue); font-weight:600; }
+  .industry-table { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+  .industry-table table { width:100%; border-collapse:collapse; }
+  .industry-table th { font-size:0.72rem; color:var(--muted); padding:9px 14px; text-align:left; text-transform:uppercase; letter-spacing:.04em; background:var(--bg); border-bottom:1px solid var(--border); }
+  .industry-table td { padding:9px 14px; font-size:0.88rem; border-top:1px solid var(--border); vertical-align:middle; }
+  .bar-wrap { flex:1; height:7px; background:var(--border); border-radius:4px; overflow:hidden; min-width:100px; }
+  .bar-fill { height:100%; background:var(--accent-blue); border-radius:4px; }
+  .bar-cell { display:flex; align-items:center; gap:10px; }
+  .chart-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .chart-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); }
+  .chart-card h3 { font-size:0.78rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; margin-bottom:12px; }
+  .chart-card canvas { max-height:180px; }
+  .reply-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:10px; box-shadow:var(--shadow); }
+  .reply-card .reply-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+  .reply-card .reply-name { font-weight:600; font-size:0.9rem; }
+  .reply-card .reply-date { font-size:0.75rem; color:var(--muted); }
+  .reply-card .reply-email { font-size:0.78rem; color:var(--accent-blue); margin-bottom:8px; }
+  .reply-card .reply-text { font-size:0.82rem; color:var(--muted); background:var(--bg); border-radius:var(--radius); padding:10px; white-space:pre-wrap; line-height:1.6; max-height:80px; overflow:hidden; }
+  .reply-card .reply-text.expanded { max-height:none; }
+  .reply-card .toggle-btn { background:none; border:none; color:var(--accent-blue); font-size:0.78rem; cursor:pointer; margin-top:6px; padding:0; }
+  .activity-table { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+  .activity-table table { width:100%; border-collapse:collapse; }
+  .activity-table th { font-size:0.72rem; color:var(--muted); padding:9px 14px; text-align:left; text-transform:uppercase; letter-spacing:.04em; background:var(--bg); border-bottom:1px solid var(--border); }
+  .activity-table td { padding:9px 14px; font-size:0.85rem; border-top:1px solid var(--border); }
+  .badge { display:inline-block; padding:2px 9px; border-radius:20px; font-size:0.72rem; font-weight:500; border:1px solid; }
+  .badge.sent { background:#ddf4ff; color:#0969da; border-color:#b6e3ff; }
+  .badge.replied { background:#dafbe1; color:#1a7f37; border-color:#aceebb; }
+  .badge.followed-up { background:#fbefff; color:#8250df; border-color:#e2c5fd; }
+  .badge.followup2 { background:#fff8c5; color:#9a6700; border-color:#f0d673; }
+  .sub-label { font-size:0.8rem; color:var(--muted); margin-bottom:12px; }
+  .empty-msg { text-align:center; padding:24px; color:var(--muted); font-size:0.88rem; }
+  @media (max-width:768px) {
+    .stat-grid { grid-template-columns:1fr 1fr; }
+    .pipeline { grid-template-columns:1fr 1fr; }
+    .perf-grid, .chart-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h2>Aeroview SalesBot Dashboard</h2>
+  <input type="password" id="pw-input" placeholder="Password" />
+  <button onclick="checkPassword()">Enter</button>
+  <span class="error" id="pw-error"></span>
+</div>
+
+<div id="app">
+  <header>
+    <span style="font-weight:600;font-size:0.95rem;">🚁 Aeroview Drone Technologies — Lead Dashboard</span>
+    <div class="header-right">
+      <span id="last-updated"></span>
+      <a href="history.html">View History →</a>
+    </div>
+  </header>
+  <div class="container">
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="val blue" id="s-sent">0</div><div class="lbl">Emails Sent</div></div>
+      <div class="stat-card"><div class="val" id="s-followups">0</div><div class="lbl">Follow-ups Sent</div></div>
+      <div class="stat-card"><div class="val green" id="s-replied">0</div><div class="lbl">Replies</div></div>
+      <div class="stat-card"><div class="val" id="s-rate">0%</div><div class="lbl">Reply Rate</div></div>
+    </div>
+
+    <section>
+      <h2>Pipeline</h2>
+      <div class="pipeline">
+        <div class="pipe-card highlight"><div class="pval" id="p-contacted">0</div><div class="plbl">New Outreach Sent</div></div>
+        <div class="pipe-card"><div class="pval" id="p-fu1">0</div><div class="plbl">Follow-up 1 Sent</div></div>
+        <div class="pipe-card"><div class="pval" id="p-fu2">0</div><div class="plbl">Follow-up 2 Sent</div></div>
+        <div class="pipe-card"><div class="pval" id="p-replied">0</div><div class="plbl">Replied</div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Performance</h2>
+      <div class="perf-grid">
+        <div class="perf-table">
+          <h3>Send Window</h3>
+          <table><thead><tr><th>Window</th><th style="text-align:right">Sent</th><th style="text-align:right">Replied</th><th style="text-align:right">Rate</th></tr></thead>
+          <tbody id="tb-window"></tbody></table>
+        </div>
+        <div class="perf-table">
+          <h3>Email Format</h3>
+          <table><thead><tr><th>Format</th><th style="text-align:right">Sent</th><th style="text-align:right">Replied</th><th style="text-align:right">Rate</th></tr></thead>
+          <tbody id="tb-format"></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>By Industry</h2>
+      <div class="industry-table">
+        <table><thead><tr><th>Industry</th><th>Sent</th><th>Volume</th></tr></thead>
+        <tbody id="tb-industry"></tbody></table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Charts</h2>
+      <div class="chart-grid">
+        <div class="chart-card"><h3>Emails Sent Per Day</h3><canvas id="chart-daily"></canvas></div>
+        <div class="chart-card"><h3>Reply Rate by Industry</h3><canvas id="chart-industry"></canvas></div>
+        <div class="chart-card"><h3>Surveying: Option A vs B</h3><canvas id="chart-survey-ab"></canvas></div>
+        <div class="chart-card"><h3>Construction: Option A vs B</h3><canvas id="chart-const-ab"></canvas></div>
+      </div>
+    </section>
+
+    <section id="replies-section" style="display:none">
+      <h2>💬 Recent Replies</h2>
+      <div id="replies-container"></div>
+    </section>
+
+    <section>
+      <h2>Recent Activity</h2>
+      <div class="activity-table"><table><thead><tr><th>Date</th><th>Business</th><th>Industry</th><th>Type</th><th>Status</th></tr></thead><tbody id="tb-activity"></tbody></table></div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+const PASSWORD = 'aeroview2026';
+function checkPassword() {
+  const val = document.getElementById('pw-input').value;
+  if (val === PASSWORD) {
+    sessionStorage.setItem('auth','1');
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+    loadDashboard();
+  } else { document.getElementById('pw-error').textContent='Incorrect password.'; }
+}
+document.getElementById('pw-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkPassword();});
+if(sessionStorage.getItem('auth')==='1'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';}
+
+const INDUSTRIES=['land surveying companies','civil engineering firms','general contractors','construction companies','earthworks excavation contractors'];
+const INDUSTRY_LABELS={'land surveying companies':'Land Surveying','civil engineering firms':'Civil Engineering','general contractors':'General Contractors','construction companies':'Construction','earthworks excavation contractors':'Earthworks'};
+const SURVEY_INDUSTRIES=['land surveying companies','civil engineering firms'];
+const CONSTRUCTION_INDUSTRIES=['general contractors','construction companies','earthworks excavation contractors'];
+
+async function loadDashboard(){
+  let tracking=[],meta=null;
+  try{const r=await fetch('data/tracking.json');tracking=await r.json();}catch(e){}
+  try{const r=await fetch('data/meta.json');meta=await r.json();}catch(e){}
+  if(meta&&meta.lastSynced)document.getElementById('last-updated').textContent='Last updated: '+new Date(meta.lastSynced).toLocaleString();
+
+  const newLeads=tracking.filter(t=>!t.type||t.type==='new');
+  const fu1Entries=tracking.filter(t=>t.type==='followup1');
+  const fu2Entries=tracking.filter(t=>t.type==='followup2');
+  const replied=newLeads.filter(t=>t.replied);
+  const replyRate=newLeads.length?((replied.length/newLeads.length)*100).toFixed(1):'0.0';
+
+  document.getElementById('s-sent').textContent=newLeads.length;
+  document.getElementById('s-followups').textContent=fu1Entries.length+fu2Entries.length;
+  document.getElementById('s-replied').textContent=replied.length;
+  document.getElementById('s-rate').textContent=replyRate+'%';
+
+  const fu1=newLeads.filter(t=>t.followedUp&&!t.followedUp2);
+  const fu2=newLeads.filter(t=>t.followedUp2);
+  document.getElementById('p-contacted').textContent=newLeads.length;
+  document.getElementById('p-fu1').textContent=fu1.length;
+  document.getElementById('p-fu2').textContent=fu2.length;
+  document.getElementById('p-replied').textContent=replied.length;
+
+  // Send window performance
+  const winData={};
+  newLeads.forEach(t=>{const w=t.window||'PM';if(!winData[w])winData[w]={sent:0,replied:0};winData[w].sent++;if(t.replied)winData[w].replied++;});
+  const tbWin=document.getElementById('tb-window');
+  ['AM','PM'].forEach(w=>{const d=winData[w]||{sent:0,replied:0};const rate=d.sent?((d.replied/d.sent)*100).toFixed(1):'0.0';tbWin.innerHTML+=`<tr><td>${w}</td><td>${d.sent}</td><td>${d.replied}</td><td class="rate-val">${rate}%</td></tr>`;});
+
+  // Format performance
+  const fmtData={};
+  newLeads.forEach(t=>{const f=t.format||'A';if(!fmtData[f])fmtData[f]={sent:0,replied:0};fmtData[f].sent++;if(t.replied)fmtData[f].replied++;});
+  const tbFmt=document.getElementById('tb-format');
+  ['A','B'].forEach(f=>{const d=fmtData[f]||{sent:0,replied:0};const rate=d.sent?((d.replied/d.sent)*100).toFixed(1):'0.0';tbFmt.innerHTML+=`<tr><td>Format ${f}</td><td>${d.sent}</td><td>${d.replied}</td><td class="rate-val">${rate}%</td></tr>`;});
+
+  // Industry breakdown
+  const maxSent=Math.max(...INDUSTRIES.map(ind=>newLeads.filter(t=>t.industry===ind).length),1);
+  const tbInd=document.getElementById('tb-industry');
+  INDUSTRIES.forEach(ind=>{const count=newLeads.filter(t=>t.industry===ind).length;const pct=Math.round((count/maxSent)*100);tbInd.innerHTML+=`<tr><td>${INDUSTRY_LABELS[ind]}</td><td>${count}</td><td><div class="bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:${pct}%"></div></div></div></td></tr>`;});
+
+  // Daily chart
+  const dailyCounts={};
+  tracking.forEach(t=>{const d=t.date||t.time?.split('T')[0];if(d)dailyCounts[d]=(dailyCounts[d]||0)+1;});
+  const sortedDays=Object.keys(dailyCounts).sort();
+  new Chart(document.getElementById('chart-daily'),{type:'bar',data:{labels:sortedDays,datasets:[{label:'Emails Sent',data:sortedDays.map(d=>dailyCounts[d]),backgroundColor:'#0969da',borderRadius:3}]},options:{plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#656d76'},grid:{color:'#e1e4e8'}},y:{ticks:{color:'#656d76',stepSize:1},grid:{color:'#e1e4e8'}}}}});
+
+  // Industry reply rate chart
+  const indRates=INDUSTRIES.map(ind=>{const s=newLeads.filter(t=>t.industry===ind);const r=s.filter(t=>t.replied);return s.length?parseFloat(((r.length/s.length)*100).toFixed(1)):0;});
+  new Chart(document.getElementById('chart-industry'),{type:'bar',data:{labels:INDUSTRIES.map(i=>INDUSTRY_LABELS[i]),datasets:[{label:'Reply Rate %',data:indRates,backgroundColor:'#1a7f37',borderRadius:3}]},options:{plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#656d76'},grid:{color:'#e1e4e8'}},y:{ticks:{color:'#656d76'},grid:{color:'#e1e4e8'}}}}});
+
+  // A/B charts
+  function buildABData(entries){const res={A:{sent:0,replied:0},B:{sent:0,replied:0}};entries.forEach(t=>{const f=t.format==='B'?'B':'A';res[f].sent++;if(t.replied)res[f].replied++;});return res;}
+  const sAB=buildABData(newLeads.filter(t=>SURVEY_INDUSTRIES.includes(t.industry)));
+  new Chart(document.getElementById('chart-survey-ab'),{type:'bar',data:{labels:['Option A (Short)','Option B (Long)'],datasets:[{label:'Sent',data:[sAB.A.sent,sAB.B.sent],backgroundColor:'#8250df',borderRadius:3},{label:'Replied',data:[sAB.A.replied,sAB.B.replied],backgroundColor:'#9a6700',borderRadius:3}]},options:{plugins:{legend:{labels:{color:'#656d76'}}},scales:{x:{ticks:{color:'#656d76'},grid:{color:'#e1e4e8'}},y:{ticks:{color:'#656d76',stepSize:1},grid:{color:'#e1e4e8'}}}}});
+  const cAB=buildABData(newLeads.filter(t=>CONSTRUCTION_INDUSTRIES.includes(t.industry)));
+  new Chart(document.getElementById('chart-const-ab'),{type:'bar',data:{labels:['Option A (Short)','Option B (Long)'],datasets:[{label:'Sent',data:[cAB.A.sent,cAB.B.sent],backgroundColor:'#0969da',borderRadius:3},{label:'Replied',data:[cAB.A.replied,cAB.B.replied],backgroundColor:'#9a6700',borderRadius:3}]},options:{plugins:{legend:{labels:{color:'#656d76'}}},scales:{x:{ticks:{color:'#656d76'},grid:{color:'#e1e4e8'}},y:{ticks:{color:'#656d76',stepSize:1},grid:{color:'#e1e4e8'}}}}});
+
+  // Recent replies section
+  const repliedWithText=tracking.filter(t=>t.replied&&t.replyText);
+  if(repliedWithText.length>0){
+    document.getElementById('replies-section').style.display='block';
+    const container=document.getElementById('replies-container');
+    container.innerHTML=repliedWithText.map((t,i)=>`
+      <div class="reply-card">
+        <div class="reply-header">
+          <div class="reply-name">${t.name}</div>
+          <div class="reply-date">${t.replyDate?new Date(t.replyDate).toLocaleDateString():t.repliedAt?new Date(t.repliedAt).toLocaleDateString():''}</div>
+        </div>
+        <div class="reply-email">${t.email}</div>
+        <div class="reply-text" id="reply-text-${i}">${t.replyText}</div>
+        <button class="toggle-btn" onclick="toggleReply(${i})">Show more</button>
+      </div>
+    `).join('');
+  }
+
+  // Recent activity
+  const tbAct=document.getElementById('tb-activity');
+  const recent=[...tracking].sort((a,b)=>new Date(b.time||b.date)-new Date(a.time||a.date)).slice(0,20);
+  if(!recent.length){tbAct.innerHTML=`<tr><td colspan="5" class="empty-msg">No activity yet.</td></tr>`;}
+  else{recent.forEach(t=>{
+    const isNew=!t.type||t.type==='new';
+    const isFU1=t.type==='followup1';
+    const isFU2=t.type==='followup2';
+    const typeLabel=isNew?'New Outreach':isFU1?'Follow-up 1':'Follow-up 2';
+    const badge=t.replied?'replied':isFU2?'followup2':isFU1?'followed-up':'sent';
+    const statusLabel=t.replied?'Replied':isFU2?'Follow-up 2':isFU1?'Follow-up 1':'Sent';
+    tbAct.innerHTML+=`<tr><td>${t.date||'—'}</td><td>${t.name||'—'}</td><td>${INDUSTRY_LABELS[t.industry]||t.industry||'—'}</td><td>${typeLabel}</td><td><span class="badge ${badge}">${statusLabel}</span></td></tr>`;
+  });}
+}
+
+function toggleReply(i){
+  const el=document.getElementById('reply-text-'+i);
+  const btn=el.nextElementSibling;
+  if(el.classList.contains('expanded')){el.classList.remove('expanded');btn.textContent='Show more';}
+  else{el.classList.add('expanded');btn.textContent='Show less';}
+}
+
+if(sessionStorage.getItem('auth')==='1')loadDashboard();
+</script>
+</body>
+</html>

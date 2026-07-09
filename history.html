@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aeroview — Email History</title>
+<style>
+  :root {
+    --bg: #f6f8fa; --surface: #ffffff; --border: #e1e4e8; --text: #1c2128; --muted: #656d76;
+    --accent: #1a7f37; --accent-blue: #0969da; --accent-purple: #8250df; --warm: #9a6700;
+    --danger: #cf222e; --radius: 6px;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --shadow: 0 1px 3px rgba(27,31,36,0.07);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; font-size: 14px; }
+  #gate { display:flex; align-items:center; justify-content:center; min-height:100vh; flex-direction:column; gap:14px; }
+  #gate h2 { font-size:0.95rem; color:var(--muted); font-weight:500; }
+  #gate input { padding:8px 12px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.95rem; width:240px; }
+  #gate button { padding:8px 24px; border-radius:var(--radius); border:none; background:var(--accent-blue); color:#fff; font-size:0.9rem; cursor:pointer; }
+  #gate .error { color:var(--danger); font-size:0.82rem; }
+  #app { display:none; }
+  header { background:var(--surface); border-bottom:1px solid var(--border); padding:12px 32px; display:flex; align-items:center; justify-content:space-between; }
+  header span { font-weight:600; font-size:0.95rem; }
+  header a { font-size:0.82rem; color:var(--accent-blue); text-decoration:none; }
+  header a:hover { text-decoration:underline; }
+  .layout { display:grid; grid-template-columns:220px 1fr; min-height:calc(100vh - 57px); }
+  .sidebar { background:var(--surface); border-right:1px solid var(--border); padding:16px 0; overflow-y:auto; }
+  .sidebar-section { padding:8px 16px; font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-top:8px; }
+  .period-item { padding:8px 16px; cursor:pointer; font-size:0.85rem; display:flex; justify-content:space-between; align-items:center; }
+  .period-item:hover { background:var(--bg); }
+  .period-item.active { background:#ddf4ff; color:var(--accent-blue); font-weight:500; }
+  .period-item .count { font-size:0.72rem; background:var(--border); border-radius:10px; padding:1px 7px; color:var(--muted); }
+  .period-item.active .count { background:var(--accent-blue); color:#fff; }
+  .main { padding:24px; overflow-y:auto; }
+  .period-header { margin-bottom:16px; }
+  .period-header h2 { font-size:1rem; font-weight:600; }
+  .period-header .stats-row { display:flex; gap:20px; margin-top:8px; }
+  .period-header .stat { font-size:0.82rem; color:var(--muted); }
+  .period-header .stat strong { color:var(--text); }
+  .email-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:10px; box-shadow:var(--shadow); overflow:hidden; }
+  .email-card-header { padding:12px 16px; cursor:pointer; display:flex; align-items:center; gap:12px; }
+  .email-card-header:hover { background:var(--bg); }
+  .email-card-header .name { font-weight:500; font-size:0.9rem; flex:1; }
+  .email-card-header .date { font-size:0.75rem; color:var(--muted); }
+  .email-card-body { display:none; padding:16px; border-top:1px solid var(--border); background:var(--bg); }
+  .email-card-body.open { display:block; }
+  .email-card-body .field-label { font-size:0.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px; margin-top:12px; }
+  .email-card-body .field-label:first-child { margin-top:0; }
+  .email-card-body .field-value { font-size:0.85rem; color:var(--text); white-space:pre-wrap; line-height:1.6; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:10px; }
+  .email-card-body .reply-value { background:#dafbe1; border-color:#aceebb; color:#1a4023; }
+  .badge { display:inline-block; padding:2px 9px; border-radius:20px; font-size:0.72rem; font-weight:500; border:1px solid; }
+  .badge.new { background:#ddf4ff; color:#0969da; border-color:#b6e3ff; }
+  .badge.followup1 { background:#fbefff; color:#8250df; border-color:#e2c5fd; }
+  .badge.followup2 { background:#fff8c5; color:#9a6700; border-color:#f0d673; }
+  .badge.replied { background:#dafbe1; color:#1a7f37; border-color:#aceebb; }
+  .empty-msg { text-align:center; padding:48px; color:var(--muted); font-size:0.88rem; }
+  .view-tabs { display:flex; gap:8px; margin-bottom:16px; }
+  .tab-btn { padding:6px 14px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); color:var(--muted); font-size:0.82rem; cursor:pointer; }
+  .tab-btn.active { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h2>Aeroview SalesBot — History</h2>
+  <input type="password" id="pw-input" placeholder="Password" />
+  <button onclick="checkPassword()">Enter</button>
+  <span class="error" id="pw-error"></span>
+</div>
+
+<div id="app">
+  <header>
+    <span>📋 Email History</span>
+    <a href="dashboard.html">← Back to Dashboard</a>
+  </header>
+  <div class="layout">
+    <div class="sidebar">
+      <div class="view-tabs" style="padding:0 16px;margin-bottom:8px;">
+        <button class="tab-btn active" onclick="setView('day')">Day</button>
+        <button class="tab-btn" onclick="setView('week')">Week</button>
+        <button class="tab-btn" onclick="setView('month')">Month</button>
+      </div>
+      <div id="sidebar-list"></div>
+    </div>
+    <div class="main" id="main-panel">
+      <div class="empty-msg">Select a period from the left to view emails.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PASSWORD = 'aeroview2026';
+function checkPassword() {
+  const val = document.getElementById('pw-input').value;
+  if (val === PASSWORD) {
+    sessionStorage.setItem('auth','1');
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+    loadHistory();
+  } else { document.getElementById('pw-error').textContent='Incorrect password.'; }
+}
+document.getElementById('pw-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkPassword();});
+if(sessionStorage.getItem('auth')==='1'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';}
+
+const INDUSTRY_LABELS={'land surveying companies':'Land Surveying','civil engineering firms':'Civil Engineering','general contractors':'General Contractors','construction companies':'Construction','earthworks excavation contractors':'Earthworks'};
+
+let tracking=[];
+let currentView='day';
+let currentPeriod=null;
+
+async function loadHistory(){
+  try{const r=await fetch('data/tracking.json');tracking=await r.json();}catch(e){tracking=[];}
+  renderSidebar();
+}
+
+function getWeek(dateStr){
+  const d=new Date(dateStr);
+  const day=d.getDay();
+  const diff=d.getDate()-day+(day===0?-6:1);
+  const mon=new Date(d.setDate(diff));
+  return mon.toISOString().split('T')[0];
+}
+
+function getMonth(dateStr){ return dateStr.slice(0,7); }
+
+function getPeriodKey(t){
+  const d=t.date||t.time?.split('T')[0]||'';
+  if(currentView==='day') return d;
+  if(currentView==='week') return getWeek(d);
+  return getMonth(d);
+}
+
+function formatPeriodLabel(key){
+  if(currentView==='day') return new Date(key+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+  if(currentView==='week'){
+    const start=new Date(key+'T12:00:00');
+    const end=new Date(start); end.setDate(end.getDate()+6);
+    return `${start.toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${end.toLocaleDateString('en-US',{month:'short',day:'numeric'})}`;
+  }
+  return new Date(key+'-01T12:00:00').toLocaleDateString('en-US',{month:'long',year:'numeric'});
+}
+
+function setView(v){
+  currentView=v;
+  currentPeriod=null;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderSidebar();
+  document.getElementById('main-panel').innerHTML='<div class="empty-msg">Select a period from the left to view emails.</div>';
+}
+
+function renderSidebar(){
+  const groups={};
+  tracking.forEach(t=>{
+    const key=getPeriodKey(t);
+    if(!key) return;
+    if(!groups[key]) groups[key]=[];
+    groups[key].push(t);
+  });
+  const sorted=Object.keys(groups).sort().reverse();
+  const list=document.getElementById('sidebar-list');
+  list.innerHTML=sorted.map(key=>`
+    <div class="period-item ${currentPeriod===key?'active':''}" onclick="selectPeriod('${key}')">
+      <span>${formatPeriodLabel(key)}</span>
+      <span class="count">${groups[key].length}</span>
+    </div>
+  `).join('');
+}
+
+function selectPeriod(key){
+  currentPeriod=key;
+  renderSidebar();
+  const entries=tracking.filter(t=>getPeriodKey(t)===key).sort((a,b)=>new Date(b.time||b.date)-new Date(a.time||a.date));
+  const newCount=entries.filter(t=>!t.type||t.type==='new').length;
+  const fu1Count=entries.filter(t=>t.type==='followup1').length;
+  const fu2Count=entries.filter(t=>t.type==='followup2').length;
+  const repliedCount=entries.filter(t=>t.replied).length;
+
+  const main=document.getElementById('main-panel');
+  main.innerHTML=`
+    <div class="period-header">
+      <h2>${formatPeriodLabel(key)}</h2>
+      <div class="stats-row">
+        <div class="stat"><strong>${entries.length}</strong> Total Sent</div>
+        <div class="stat"><strong>${newCount}</strong> New Outreach</div>
+        <div class="stat"><strong>${fu1Count+fu2Count}</strong> Follow-ups</div>
+        <div class="stat"><strong>${repliedCount}</strong> Replies</div>
+      </div>
+    </div>
+    ${entries.map((t,i)=>{
+      const isNew=!t.type||t.type==='new';
+      const isFU1=t.type==='followup1';
+      const typeClass=isNew?'new':isFU1?'followup1':'followup2';
+      const typeLabel=isNew?'New Outreach':isFU1?'Follow-up 1':'Follow-up 2';
+      const repliedBadge=t.replied?'<span class="badge replied" style="margin-left:6px">Replied</span>':'';
+      return `
+        <div class="email-card">
+          <div class="email-card-header" onclick="toggleCard(${i})">
+            <div class="name">${t.name||'—'}</div>
+            <span class="badge ${typeClass}">${typeLabel}</span>
+            ${repliedBadge}
+            <div class="date">${t.date||''}</div>
+          </div>
+          <div class="email-card-body" id="card-${i}">
+            <div class="field-label">Email</div>
+            <div class="field-value">${t.email||'—'}</div>
+            <div class="field-label">Industry</div>
+            <div class="field-value">${INDUSTRY_LABELS[t.industry]||t.industry||'—'}</div>
+            <div class="field-label">Subject</div>
+            <div class="field-value">${t.subject||'—'}</div>
+            <div class="field-label">Body</div>
+            <div class="field-value">${t.body||'(body not available for older entries)'}</div>
+            ${t.replied&&t.replyText?`<div class="field-label">Their Reply</div><div class="field-value reply-value">${t.replyText}</div>`:''}
+          </div>
+        </div>
+      `;
+    }).join('')}
+  `;
+}
+
+function toggleCard(i){
+  const body=document.getElementById('card-'+i);
+  body.classList.toggle('open');
+}
+
+if(sessionStorage.getItem('auth')==='1')loadHistory();
+</script>
+</body>
+</html>
