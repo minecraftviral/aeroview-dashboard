@@ -203,7 +203,9 @@
     "replied": false,
     "status": "sent",
     "followedUp": true,
-    "followUpDate": "2026-07-07T15:02:53.058Z"
+    "followUpDate": "2026-07-07T15:02:53.058Z",
+    "followedUp2": true,
+    "followUpDate2": "2026-07-13T15:04:37.406Z"
   },
   {
     "name": "DirtWirx",
@@ -217,7 +219,9 @@
     "replied": false,
     "status": "sent",
     "followedUp": true,
-    "followUpDate": "2026-07-07T15:05:55.016Z"
+    "followUpDate": "2026-07-07T15:05:55.016Z",
+    "followedUp2": true,
+    "followUpDate2": "2026-07-13T15:06:28.619Z"
   },
   {
     "name": "316 Land Surveying",
@@ -232,7 +236,9 @@
     "replied": false,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-13T15:07:48.934Z"
   },
   {
     "name": "Elevation Express Land Surveys",
@@ -247,7 +253,9 @@
     "replied": false,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-13T15:09:37.390Z"
   },
   {
     "name": "Capital Surveying Supplies",
@@ -262,7 +270,9 @@
     "replied": false,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-13T15:10:42.475Z"
   },
   {
     "name": "Texas Professional Surveying, LLC",
@@ -277,7 +287,9 @@
     "replied": false,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-13T15:11:53.790Z"
   },
   {
     "name": "Washburn & Co Land Surveying",
@@ -292,7 +304,9 @@
     "replied": false,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-13T15:13:33.057Z"
   },
   {
     "name": "Pioneer Engineering, LLC",
@@ -305,6 +319,166 @@
     "date": "2026-07-09",
     "time": "2026-07-09T15:10:46.092Z",
     "replied": false,
+    "status": "sent",
+    "followedUp1": false,
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-13T15:15:15.627Z"
+  },
+  {
+    "type": "followup2",
+    "name": "Tetra Land Services",
+    "email": "jvn@tlstx.com",
+    "industry": "land surveying companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Tetra Land Services,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-13",
+    "time": "2026-07-13T15:04:37.407Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "DirtWirx",
+    "email": "getinfo@dirtwirx.com",
+    "industry": "earthworks excavation contractors",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy DirtWirx,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-13",
+    "time": "2026-07-13T15:06:28.620Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "316 Land Surveying",
+    "email": "info@316landsurveys.com",
+    "industry": "land surveying companies",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy 316 Land Surveying,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-13",
+    "time": "2026-07-13T15:07:48.934Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Elevation Express Land Surveys",
+    "email": "elevationexpress@comcast.net",
+    "industry": "land surveying companies",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Elevation Express Land Surveys,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-13",
+    "time": "2026-07-13T15:09:37.390Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Capital Surveying Supplies",
+    "email": "sales@capitalsurveyingsupplies.com",
+    "industry": "land surveying companies",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Capital Surveying Supplies,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-13",
+    "time": "2026-07-13T15:10:42.475Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Texas Professional Surveying, LLC",
+    "email": "quotes@surveyingtexas.com",
+    "industry": "land surveying companies",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Texas Professional Surveying, LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-13",
+    "time": "2026-07-13T15:11:53.790Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Washburn & Co Land Surveying",
+    "email": "awashburnsurvey@gmail.com",
+    "industry": "land surveying companies",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Washburn & Co Land Surveying,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-13",
+    "time": "2026-07-13T15:13:33.057Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Pioneer Engineering, LLC",
+    "email": "info@pioneerengineer.com",
+    "industry": "civil engineering firms",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Pioneer Engineering, LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-13",
+    "time": "2026-07-13T15:15:15.627Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "new",
+    "name": "Sandlot Engineering, LLC",
+    "email": "hello@sandlotengineering.com",
+    "industry": "civil engineering firms",
+    "city": "Houston, Texas",
+    "subject": "Take on more clients with faster turnaround",
+    "body": "Howdy Sandlot Engineering, LLC,\n\nAeroview Drone Technologies, is a Houston-based provider specialized in supplying high-quality aerial data for professional land surveyors.\n\nWe deliver clean, cm accurate, drone-captured datasets that integrate smoothly into established surveying workflows.\n\nOur commitment is simple:\n- Precise Deliverables: 2D orthomosaics, 3D site reconstructions, point clouds, and additional data as needed.\n- Speed You Can Rely On: Turnaround times are often 5X-10X faster than traditional methods.\n- Deliverables Tailored to you: Our deliverables are prepped and delivered for your needs.\n\nWe are fully FAA-licensed, insured, and operate with a strict safety-first protocol tailored for active jobsites.\n\nMany of my most trusted partnerships started with a simple introduction. We would welcome the opportunity to meet you — whether over coffee, at your office, or on a quick phone call — to learn about your firm and explore how Aeroview can become a reliable extension of your team.\n\nIf you are interested you can reach out either by replying here or on our website Avdronetech.com!",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-07-13",
+    "time": "2026-07-13T15:18:14.358Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent",
+    "followedUp1": false,
+    "followedUp2": false
+  },
+  {
+    "type": "new",
+    "name": "MBCO Engineering, LLC",
+    "email": "info@mbcoengineering.com",
+    "industry": "civil engineering firms",
+    "city": "Houston, Texas",
+    "subject": "Move straight into drafting within 48 hours",
+    "body": "Howdy MBCO Engineering, LLC,\n\nAeroview Drone Technologies, is a Houston-based provider specialized in supplying high-quality aerial data for professional land surveyors.\n\nWe deliver clean, cm accurate, drone-captured datasets that integrate smoothly into established surveying workflows.\n\nOur commitment is simple:\n- Precise Deliverables: 2D orthomosaics, 3D site reconstructions, point clouds, and additional data as needed.\n- Speed You Can Rely On: Turnaround times are often 5X-10X faster than traditional methods.\n- Deliverables Tailored to you: Our deliverables are prepped and delivered for your needs.\n\nWe are fully FAA-licensed, insured, and operate with a strict safety-first protocol tailored for active jobsites.\n\nMany of my most trusted partnerships started with a simple introduction. We would welcome the opportunity to meet you — whether over coffee, at your office, or on a quick phone call — to learn about your firm and explore how Aeroview can become a reliable extension of your team.\n\nIf you are interested you can reach out either by replying here or on our website Avdronetech.com!",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-07-13",
+    "time": "2026-07-13T15:20:23.445Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
     "status": "sent",
     "followedUp1": false,
     "followedUp2": false
