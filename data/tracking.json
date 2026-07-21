@@ -556,9 +556,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-16T15:04:44.988Z"
+    "followUpDate": "2026-07-16T15:04:44.988Z",
+    "followUpDate2": "2026-07-21T15:04:43.476Z"
   },
   {
     "type": "new",
@@ -577,9 +578,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-16T15:05:49.469Z"
+    "followUpDate": "2026-07-16T15:05:49.469Z",
+    "followUpDate2": "2026-07-21T15:06:05.207Z"
   },
   {
     "type": "new",
@@ -598,9 +600,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-16T15:07:32.752Z"
+    "followUpDate": "2026-07-16T15:07:32.752Z",
+    "followUpDate2": "2026-07-21T15:07:42.930Z"
   },
   {
     "type": "new",
@@ -619,9 +622,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-16T15:08:57.715Z"
+    "followUpDate": "2026-07-16T15:08:57.715Z",
+    "followUpDate2": "2026-07-21T15:09:09.870Z"
   },
   {
     "type": "new",
@@ -640,9 +644,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-16T15:10:01.840Z"
+    "followUpDate": "2026-07-16T15:10:01.840Z",
+    "followUpDate2": "2026-07-21T15:10:19.296Z"
   },
   {
     "type": "new",
@@ -661,9 +666,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-16T15:11:11.249Z"
+    "followUpDate": "2026-07-16T15:11:11.249Z",
+    "followUpDate2": "2026-07-21T15:11:32.280Z"
   },
   {
     "type": "new",
@@ -682,9 +688,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-16T15:12:37.410Z"
+    "followUpDate": "2026-07-16T15:12:37.410Z",
+    "followUpDate2": "2026-07-21T15:13:30.359Z"
   },
   {
     "type": "new",
@@ -703,9 +710,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-16T15:14:06.486Z"
+    "followUpDate": "2026-07-16T15:14:06.486Z",
+    "followUpDate2": "2026-07-21T15:15:17.596Z"
   },
   {
     "type": "followup1",
@@ -754,7 +762,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-21T15:16:39.654Z"
   },
   {
     "type": "new",
@@ -773,7 +783,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-21T15:18:30.841Z"
   },
   {
     "type": "new",
@@ -1184,6 +1196,156 @@
     "body": "Howdy Las Haciendas Design & Engineering, LLC (Planos, Permisos, Plans, Permits),\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
     "date": "2026-07-20",
     "time": "2026-07-20T15:16:32.528Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "Pape-Dawson Engineers",
+    "email": "info@pape-dawson.com",
+    "industry": "civil engineering firms",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Pape-Dawson Engineers,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-21",
+    "time": "2026-07-21T15:04:43.476Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "Zeta Engineering LLC",
+    "email": "contact@zeta-engineering.us",
+    "industry": "civil engineering firms",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Zeta Engineering LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-21",
+    "time": "2026-07-21T15:06:05.207Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "REKHA Engineering, Inc.",
+    "email": "info@rekhaengineering.com",
+    "industry": "civil engineering firms",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy REKHA Engineering, Inc.,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-21",
+    "time": "2026-07-21T15:07:42.930Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "Lentz Engineering, LLC",
+    "email": "info@lentzengineering.com",
+    "industry": "civil engineering firms",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Lentz Engineering, LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-21",
+    "time": "2026-07-21T15:09:09.870Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "MIF Contracting LLC",
+    "email": "%20info@mifcontracting.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy MIF Contracting LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-21",
+    "time": "2026-07-21T15:10:19.296Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "Marwood Construction",
+    "email": "info@marwoodconstruction.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Marwood Construction,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-21",
+    "time": "2026-07-21T15:11:32.280Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "Right Choice Construction",
+    "email": "info@rightchoicedev.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Right Choice Construction,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-21",
+    "time": "2026-07-21T15:13:30.359Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "BM General Constructions",
+    "email": "admin@bmgcs.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy BM General Constructions,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-21",
+    "time": "2026-07-21T15:15:17.596Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "RSG Engineering, Inc.",
+    "email": "info@rsgcompanies.com",
+    "industry": "civil engineering firms",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy RSG Engineering, Inc.,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-21",
+    "time": "2026-07-21T15:16:39.654Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Houston Builders Inc",
+    "email": "office@houstonbuilderstexas.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Houston Builders Inc,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-21",
+    "time": "2026-07-21T15:18:30.841Z",
     "replied": false,
     "replyText": null,
     "replyDate": null,
