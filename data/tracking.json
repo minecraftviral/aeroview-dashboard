@@ -804,7 +804,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-22T15:03:55.763Z"
   },
   {
     "type": "new",
@@ -823,7 +825,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-22T15:05:31.486Z"
   },
   {
     "type": "new",
@@ -842,7 +846,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-22T15:07:14.766Z"
   },
   {
     "type": "new",
@@ -861,7 +867,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-22T15:08:28.243Z"
   },
   {
     "type": "new",
@@ -880,7 +888,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-22T15:09:36.187Z"
   },
   {
     "type": "new",
@@ -899,7 +909,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-22T15:10:44.247Z"
   },
   {
     "type": "followup1",
@@ -1350,5 +1362,171 @@
     "replyText": null,
     "replyDate": null,
     "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Tell Projects",
+    "email": "info@tellprojectstx.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Tell Projects,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-22",
+    "time": "2026-07-22T15:03:55.763Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Dunhill Construction",
+    "email": "info@dunhillconstruction.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Dunhill Construction,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-22",
+    "time": "2026-07-22T15:05:31.486Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "BAL Home & Commercial Contracting, LLC | BHC Contracting",
+    "email": "info@bhctx.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy BAL Home & Commercial Contracting, LLC | BHC Contracting,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-22",
+    "time": "2026-07-22T15:07:14.766Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Andrade Construction Companies",
+    "email": "info@andradecc.com",
+    "industry": "construction companies",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Andrade Construction Companies,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-22",
+    "time": "2026-07-22T15:08:28.243Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Corvus Construction Company, Inc.",
+    "email": "info@corvusconstruction.com",
+    "industry": "construction companies",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Corvus Construction Company, Inc.,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-22",
+    "time": "2026-07-22T15:09:36.187Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "MSC Earthwork",
+    "email": "info@mscearthwork.com",
+    "industry": "earthworks excavation contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy MSC Earthwork,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-22",
+    "time": "2026-07-22T15:10:44.247Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "new",
+    "name": "Texas Excavation Services LLC",
+    "email": "info@excavationplumbing.com",
+    "industry": "earthworks excavation contractors",
+    "city": "Houston, Texas",
+    "subject": "Keep stakeholders informed with aerial site data",
+    "body": "Howdy Texas Excavation Services LLC,\n\nAeroview Drone Technologies specializes in providing General Contractors and Project Managers with high-precision aerial data that bridges the gap between the field and the office.\n\nWe've seen how traditional site walk-throughs and manual reporting can slow down a project. We help teams move faster by delivering accurate, actionable 2D and 3D site models that can be shared with anyone no matter the location.\n\nHow we support your site teams:\n- Progress Tracking: High-resolution 2D orthomosaics and 3D site reconstructions to verify work and keep stakeholders informed.\n- Precision Volumetrics: Instant cut and fill data and stockpile measurements to help gather general earthwork estimates without waiting days for a ground crew.\n- Safety and Compliance: Detailed site documentation that reduces risk, minimizes rework, and keeps personnel out of harm's way.\n- Speed: Deliverables provided faster than traditional methods, keeping your schedule on track.\n\nWe are fully FAA-licensed, insured, and operate with a strict safety-first protocol tailored for active jobsites.\n\nMany of my most trusted partnerships started with a simple introduction. We would welcome the opportunity to meet you — whether over coffee, at your office, or on a quick phone call — to learn about your firm and explore how Aeroview can become a reliable extension of your team.\n\nIf you are interested you can reach out either by replying here or on our website Avdronetech.com!",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-07-22",
+    "time": "2026-07-22T15:14:42.478Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent",
+    "followedUp1": false,
+    "followedUp2": false
+  },
+  {
+    "type": "new",
+    "name": "Hawkland Surveying",
+    "email": "admin@landsurveyor-tx.com",
+    "industry": "land surveying companies",
+    "city": "Katy, Texas",
+    "subject": "Take on more clients with faster turnaround",
+    "body": "Howdy Hawkland Surveying,\n\nAeroview Drone Technologies, is a Houston-based provider specialized in supplying high-quality aerial data for professional land surveyors.\n\nWe deliver clean, cm accurate, drone-captured datasets that integrate smoothly into established surveying workflows.\n\nOur commitment is simple:\n- Precise Deliverables: 2D orthomosaics, 3D site reconstructions, point clouds, and additional data as needed.\n- Speed You Can Rely On: Turnaround times are often 5X-10X faster than traditional methods.\n- Deliverables Tailored to you: Our deliverables are prepped and delivered for your needs.\n\nWe are fully FAA-licensed, insured, and operate with a strict safety-first protocol tailored for active jobsites.\n\nMany of my most trusted partnerships started with a simple introduction. We would welcome the opportunity to meet you — whether over coffee, at your office, or on a quick phone call — to learn about your firm and explore how Aeroview can become a reliable extension of your team.\n\nIf you are interested you can reach out either by replying here or on our website Avdronetech.com!",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-07-22",
+    "time": "2026-07-22T15:16:25.967Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent",
+    "followedUp1": false,
+    "followedUp2": false
+  },
+  {
+    "type": "new",
+    "name": "Probstfeld & Associates",
+    "email": "landsurveys@probstfeld.com",
+    "industry": "land surveying companies",
+    "city": "Katy, Texas",
+    "subject": "Take on more clients with faster turnaround",
+    "body": "Howdy Probstfeld & Associates,\n\nAeroview Drone Technologies, is a Houston-based provider specialized in supplying high-quality aerial data for professional land surveyors.\n\nWe deliver clean, cm accurate, drone-captured datasets that integrate smoothly into established surveying workflows.\n\nOur commitment is simple:\n- Precise Deliverables: 2D orthomosaics, 3D site reconstructions, point clouds, and additional data as needed.\n- Speed You Can Rely On: Turnaround times are often 5X-10X faster than traditional methods.\n- Deliverables Tailored to you: Our deliverables are prepped and delivered for your needs.\n\nWe are fully FAA-licensed, insured, and operate with a strict safety-first protocol tailored for active jobsites.\n\nMany of my most trusted partnerships started with a simple introduction. We would welcome the opportunity to meet you — whether over coffee, at your office, or on a quick phone call — to learn about your firm and explore how Aeroview can become a reliable extension of your team.\n\nIf you are interested you can reach out either by replying here or on our website Avdronetech.com!",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-07-22",
+    "time": "2026-07-22T15:18:05.073Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent",
+    "followedUp1": false,
+    "followedUp2": false
+  },
+  {
+    "type": "new",
+    "name": "Whitman Land Group, LLC",
+    "email": "teamwlg@whitmanlandgroup.com",
+    "industry": "land surveying companies",
+    "city": "Katy, Texas",
+    "subject": "Move straight into drafting within 48 hours",
+    "body": "Howdy Whitman Land Group, LLC,\n\nAeroview Drone Technologies, is a Houston-based provider specialized in supplying high-quality aerial data for professional land surveyors.\n\nWe deliver clean, cm accurate, drone-captured datasets that integrate smoothly into established surveying workflows.\n\nOur commitment is simple:\n- Precise Deliverables: 2D orthomosaics, 3D site reconstructions, point clouds, and additional data as needed.\n- Speed You Can Rely On: Turnaround times are often 5X-10X faster than traditional methods.\n- Deliverables Tailored to you: Our deliverables are prepped and delivered for your needs.\n\nWe are fully FAA-licensed, insured, and operate with a strict safety-first protocol tailored for active jobsites.\n\nMany of my most trusted partnerships started with a simple introduction. We would welcome the opportunity to meet you — whether over coffee, at your office, or on a quick phone call — to learn about your firm and explore how Aeroview can become a reliable extension of your team.\n\nIf you are interested you can reach out either by replying here or on our website Avdronetech.com!",
+    "format": "B",
+    "window": "PM",
+    "date": "2026-07-22",
+    "time": "2026-07-22T15:19:45.794Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent",
+    "followedUp1": false,
+    "followedUp2": false
   }
 ]
