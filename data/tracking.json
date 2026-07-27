@@ -762,9 +762,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-21T15:16:39.654Z"
+    "followUpDate": "2026-07-21T15:16:39.654Z",
+    "followUpDate2": "2026-07-27T15:02:18.129Z"
   },
   {
     "type": "new",
@@ -783,9 +784,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-21T15:18:30.841Z"
+    "followUpDate": "2026-07-21T15:18:30.841Z",
+    "followUpDate2": "2026-07-27T15:03:56.621Z"
   },
   {
     "type": "new",
@@ -804,9 +806,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-22T15:03:55.763Z"
+    "followUpDate": "2026-07-22T15:03:55.763Z",
+    "followUpDate2": "2026-07-27T15:05:42.403Z"
   },
   {
     "type": "new",
@@ -825,9 +828,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-22T15:05:31.486Z"
+    "followUpDate": "2026-07-22T15:05:31.486Z",
+    "followUpDate2": "2026-07-27T15:07:35.819Z"
   },
   {
     "type": "new",
@@ -846,9 +850,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-22T15:07:14.766Z"
+    "followUpDate": "2026-07-22T15:07:14.766Z",
+    "followUpDate2": "2026-07-27T15:09:02.953Z"
   },
   {
     "type": "new",
@@ -867,9 +872,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-22T15:08:28.243Z"
+    "followUpDate": "2026-07-22T15:08:28.243Z",
+    "followUpDate2": "2026-07-27T15:10:50.587Z"
   },
   {
     "type": "new",
@@ -888,9 +894,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-22T15:09:36.187Z"
+    "followUpDate": "2026-07-22T15:09:36.187Z",
+    "followUpDate2": "2026-07-27T15:12:45.211Z"
   },
   {
     "type": "new",
@@ -909,9 +916,10 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false,
+    "followedUp2": true,
     "followedUp": true,
-    "followUpDate": "2026-07-22T15:10:44.247Z"
+    "followUpDate": "2026-07-22T15:10:44.247Z",
+    "followUpDate2": "2026-07-27T15:14:28.333Z"
   },
   {
     "type": "followup1",
@@ -1470,7 +1478,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-27T15:15:42.186Z"
   },
   {
     "type": "new",
@@ -1489,7 +1499,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-27T15:17:26.942Z"
   },
   {
     "type": "new",
@@ -1508,7 +1520,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-27T15:19:00.276Z"
   },
   {
     "type": "new",
@@ -1527,7 +1541,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-27T15:20:43.546Z"
   },
   {
     "type": "new",
@@ -1546,7 +1562,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-27T15:22:05.712Z"
   },
   {
     "type": "new",
@@ -1565,7 +1583,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-27T15:23:35.599Z"
   },
   {
     "type": "new",
@@ -1584,7 +1604,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-07-27T15:25:26.813Z"
   },
   {
     "type": "new",
@@ -1718,5 +1740,230 @@
     "status": "sent",
     "followedUp1": false,
     "followedUp2": false
+  },
+  {
+    "type": "followup2",
+    "name": "RSG Engineering, Inc.",
+    "email": "info@rsgcompanies.com",
+    "industry": "civil engineering firms",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy RSG Engineering, Inc.,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:02:18.129Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "Houston Builders Inc",
+    "email": "office@houstonbuilderstexas.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Houston Builders Inc,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:03:56.622Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "Tell Projects",
+    "email": "info@tellprojectstx.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Tell Projects,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:05:42.404Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "Dunhill Construction",
+    "email": "info@dunhillconstruction.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Dunhill Construction,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:07:35.819Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "BAL Home & Commercial Contracting, LLC | BHC Contracting",
+    "email": "info@bhctx.com",
+    "industry": "general contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy BAL Home & Commercial Contracting, LLC | BHC Contracting,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:09:02.953Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "Andrade Construction Companies",
+    "email": "info@andradecc.com",
+    "industry": "construction companies",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Andrade Construction Companies,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:10:50.587Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "Corvus Construction Company, Inc.",
+    "email": "info@corvusconstruction.com",
+    "industry": "construction companies",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Corvus Construction Company, Inc.,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:12:45.211Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup2",
+    "name": "MSC Earthwork",
+    "email": "info@mscearthwork.com",
+    "industry": "earthworks excavation contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy MSC Earthwork,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:14:28.333Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Texas Excavation Services LLC",
+    "email": "info@excavationplumbing.com",
+    "industry": "earthworks excavation contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Texas Excavation Services LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:15:42.186Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Hawkland Surveying",
+    "email": "admin@landsurveyor-tx.com",
+    "industry": "land surveying companies",
+    "city": "Katy, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Hawkland Surveying,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:17:26.942Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Probstfeld & Associates",
+    "email": "landsurveys@probstfeld.com",
+    "industry": "land surveying companies",
+    "city": "Katy, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Probstfeld & Associates,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:19:00.276Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Whitman Land Group, LLC",
+    "email": "teamwlg@whitmanlandgroup.com",
+    "industry": "land surveying companies",
+    "city": "Katy, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Whitman Land Group, LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:20:43.546Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Vogler & Spencer Engineering, Inc.",
+    "email": "info@vs-eng.com",
+    "industry": "civil engineering firms",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Vogler & Spencer Engineering, Inc.,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:22:05.712Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "NTX Earthworks",
+    "email": "admin@ntxearthworks.com",
+    "industry": "earthworks excavation contractors",
+    "city": "Houston, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy NTX Earthworks,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:23:35.599Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "name": "Andrew Lonnie Sikes, Inc.",
+    "email": "houston@surveyor.com",
+    "industry": "land surveying companies",
+    "city": "Katy, Texas",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Andrew Lonnie Sikes, Inc.,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-07-27",
+    "time": "2026-07-27T15:25:26.813Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
   }
 ]
