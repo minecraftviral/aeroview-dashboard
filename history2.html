@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Aeroview — Email History (Campaign 1)</title>
+<title>Aeroview — Email History (Campaign 2)</title>
 <style>
   :root {
     --bg: #f6f8fa; --surface: #ffffff; --border: #e1e4e8; --text: #1c2128; --muted: #656d76;
@@ -17,7 +17,7 @@
   #gate { display:flex; align-items:center; justify-content:center; min-height:100vh; flex-direction:column; gap:14px; }
   #gate h2 { font-size:0.95rem; color:var(--muted); font-weight:500; }
   #gate input { padding:8px 12px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.95rem; width:240px; }
-  #gate button { padding:8px 24px; border-radius:var(--radius); border:none; background:var(--accent-blue); color:#fff; font-size:0.9rem; cursor:pointer; }
+  #gate button { padding:8px 24px; border-radius:var(--radius); border:none; background:var(--accent); color:#fff; font-size:0.9rem; cursor:pointer; }
   #gate .error { color:var(--danger); font-size:0.82rem; }
   #app { display:none; }
   header { background:var(--surface); border-bottom:1px solid var(--border); padding:12px 32px; display:flex; align-items:center; justify-content:space-between; }
@@ -29,9 +29,9 @@
   .sidebar { background:var(--surface); border-right:1px solid var(--border); padding:16px 0; overflow-y:auto; }
   .period-item { padding:8px 16px; cursor:pointer; font-size:0.85rem; display:flex; justify-content:space-between; align-items:center; }
   .period-item:hover { background:var(--bg); }
-  .period-item.active { background:#ddf4ff; color:var(--accent-blue); font-weight:500; }
+  .period-item.active { background:#dafbe1; color:var(--accent); font-weight:500; }
   .period-item .count { font-size:0.72rem; background:var(--border); border-radius:10px; padding:1px 7px; color:var(--muted); }
-  .period-item.active .count { background:var(--accent-blue); color:#fff; }
+  .period-item.active .count { background:var(--accent); color:#fff; }
   .main { padding:24px; overflow-y:auto; }
   .period-header { margin-bottom:16px; }
   .period-header h2 { font-size:1rem; font-weight:600; }
@@ -42,6 +42,7 @@
   .email-card-header { padding:12px 16px; cursor:pointer; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
   .email-card-header:hover { background:var(--bg); }
   .email-card-header .name { font-weight:500; font-size:0.9rem; flex:1; }
+  .email-card-header .contact { font-size:0.78rem; color:var(--muted); }
   .email-card-header .date { font-size:0.75rem; color:var(--muted); }
   .email-card-body { display:none; padding:16px; border-top:1px solid var(--border); background:var(--bg); }
   .email-card-body.open { display:block; }
@@ -54,16 +55,18 @@
   .badge.followup1 { background:#fbefff; color:#8250df; border-color:#e2c5fd; }
   .badge.followup2 { background:#fff8c5; color:#9a6700; border-color:#f0d673; }
   .badge.replied { background:#dafbe1; color:#1a7f37; border-color:#aceebb; }
+  .badge.senior { background:#ddf4ff; color:#0969da; border-color:#b6e3ff; }
+  .badge.mid { background:#f1f8ff; color:#656d76; border-color:#d0d7de; }
   .empty-msg { text-align:center; padding:48px; color:var(--muted); font-size:0.88rem; }
   .view-tabs { display:flex; gap:8px; margin-bottom:16px; padding:0 16px; }
   .tab-btn { padding:6px 14px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); color:var(--muted); font-size:0.82rem; cursor:pointer; }
-  .tab-btn.active { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
+  .tab-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
 </style>
 </head>
 <body>
 
 <div id="gate">
-  <h2>Aeroview SalesBot — History (Campaign 1)</h2>
+  <h2>Aeroview SalesBot — History (Campaign 2)</h2>
   <input type="password" id="pw-input" placeholder="Password" />
   <button onclick="checkPassword()">Enter</button>
   <span class="error" id="pw-error"></span>
@@ -71,10 +74,10 @@
 
 <div id="app">
   <header>
-    <span>📋 Email History — Campaign 1</span>
+    <span>📋 Email History — Campaign 2 (Apollo)</span>
     <div class="header-right">
-      <a href="history2.html">Campaign 2 History →</a>
-      <a href="dashboard.html">← Dashboard</a>
+      <a href="history.html">← Campaign 1 History</a>
+      <a href="dashboard2.html">← Dashboard</a>
     </div>
   </header>
   <div class="layout">
@@ -114,8 +117,8 @@ let currentPeriod=null;
 
 async function loadHistory(){
   try{const r=await fetch('data/tracking.json');const all=await r.json();
-  // Campaign 1 only
-  tracking=all.filter(t=>!t.campaign||t.campaign===1);
+  // Campaign 2 only
+  tracking=all.filter(t=>t.campaign===2);
   }catch(e){tracking=[];}
   renderSidebar();
 }
@@ -183,19 +186,26 @@ function selectPeriod(key){
       const typeClass=isNew?'new':isFU1?'followup1':'followup2';
       const typeLabel=isNew?'New Outreach':isFU1?'Follow-up 1':'Follow-up 2';
       const repliedBadge=t.replied?'<span class="badge replied" style="margin-left:6px">Replied</span>':'';
+      const rankBadge=t.contactRank?`<span class="badge ${t.contactRank}" style="margin-left:6px">${t.contactRank==='senior'?'Senior':'Mid'}</span>`:'';
+      const contactInfo=t.contactName?`<span class="contact" style="font-size:0.78rem;color:var(--muted)">${t.contactName}${t.title?' — '+t.title:''}</span>`:'';
       return `
         <div class="email-card">
           <div class="email-card-header" onclick="toggleCard(${i})">
-            <div class="name">${t.name||'—'}</div>
+            <div class="name">${t.name||'—'} ${contactInfo}</div>
             <span class="badge ${typeClass}">${typeLabel}</span>
+            ${rankBadge}
             ${repliedBadge}
             <div class="date">${t.date||''}</div>
           </div>
           <div class="email-card-body" id="card-${i}">
+            <div class="field-label">Contact</div>
+            <div class="field-value">${t.contactName||'—'}${t.title?' — '+t.title:''}</div>
             <div class="field-label">Email</div>
             <div class="field-value">${t.email||'—'}</div>
+            ${t.linkedin?`<div class="field-label">LinkedIn</div><div class="field-value"><a href="${t.linkedin}" target="_blank" style="color:var(--accent-blue)">${t.linkedin}</a></div>`:''}
             <div class="field-label">Industry</div>
             <div class="field-value">${INDUSTRY_LABELS[t.industry]||t.industry||'—'}</div>
+            ${t.companySize?`<div class="field-label">Company Size</div><div class="field-value">${t.companySize} employees</div>`:''}
             <div class="field-label">Subject</div>
             <div class="field-value">${t.subject||'—'}</div>
             <div class="field-label">Body</div>
