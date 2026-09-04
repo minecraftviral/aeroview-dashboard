@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aeroview — Contacts (Campaign 2)</title>
+<style>
+  :root {
+    --bg: #f6f8fa; --surface: #ffffff; --border: #e1e4e8; --text: #1c2128; --muted: #656d76;
+    --accent: #1a7f37; --accent-blue: #0969da; --accent-purple: #8250df; --warm: #9a6700;
+    --danger: #cf222e; --radius: 6px;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --shadow: 0 1px 3px rgba(27,31,36,0.07);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; font-size: 14px; }
+  #gate { display:flex; align-items:center; justify-content:center; min-height:100vh; flex-direction:column; gap:14px; }
+  #gate h2 { font-size:0.95rem; color:var(--muted); font-weight:500; }
+  #gate input { padding:8px 12px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.95rem; width:240px; }
+  #gate button { padding:8px 24px; border-radius:var(--radius); border:none; background:var(--accent); color:#fff; font-size:0.9rem; cursor:pointer; }
+  #gate .error { color:var(--danger); font-size:0.82rem; }
+  #app { display:none; }
+  header { background:var(--surface); border-bottom:1px solid var(--border); padding:12px 32px; display:flex; align-items:center; justify-content:space-between; }
+  header span { font-weight:600; font-size:0.95rem; }
+  .header-right { display:flex; align-items:center; gap:16px; }
+  header a { font-size:0.82rem; color:var(--accent-blue); text-decoration:none; }
+  header a:hover { text-decoration:underline; }
+  .container { max-width:1200px; margin:0 auto; padding:24px 20px; }
+  .filters { display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap; align-items:center; }
+  .filters input, .filters select { padding:7px 12px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.85rem; }
+  .filters input { width:220px; }
+  .filters input::placeholder { color:var(--muted); }
+  .filter-label { font-size:0.78rem; color:var(--muted); }
+  .btn-clear { padding:7px 14px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); color:var(--muted); font-size:0.82rem; cursor:pointer; }
+  .btn-clear:hover { background:var(--bg); }
+  .count-label { font-size:0.78rem; color:var(--muted); margin-left:auto; }
+  .table-wrap { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+  table { width:100%; border-collapse:collapse; }
+  th { font-size:0.72rem; color:var(--muted); padding:10px 14px; text-align:left; text-transform:uppercase; letter-spacing:.04em; background:var(--bg); border-bottom:1px solid var(--border); cursor:pointer; user-select:none; white-space:nowrap; }
+  th:hover { color:var(--text); }
+  td { padding:10px 14px; font-size:0.85rem; border-top:1px solid var(--border); vertical-align:top; }
+  tr:hover td { background:#f8fafc; }
+  .expanded td { background:#f0f7ff; }
+  .badge { display:inline-block; padding:2px 9px; border-radius:20px; font-size:0.72rem; font-weight:500; border:1px solid; white-space:nowrap; }
+  .badge.sent { background:#ddf4ff; color:#0969da; border-color:#b6e3ff; }
+  .badge.replied { background:#dafbe1; color:#1a7f37; border-color:#aceebb; }
+  .badge.followed-up { background:#fbefff; color:#8250df; border-color:#e2c5fd; }
+  .badge.followup2 { background:#fff8c5; color:#9a6700; border-color:#f0d673; }
+  .badge.senior { background:#ddf4ff; color:#0969da; border-color:#b6e3ff; }
+  .badge.mid { background:#f1f8ff; color:#656d76; border-color:#d0d7de; }
+  .linkedin-link { color:var(--accent-blue); text-decoration:none; font-size:0.78rem; }
+  .linkedin-link:hover { text-decoration:underline; }
+  .expand-row { display:none; }
+  .expand-row.open { display:table-row; }
+  .expand-cell { padding:16px; background:#f8fafc; border-top:none; }
+  .expand-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .expand-section { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px; }
+  .expand-section h4 { font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; margin-bottom:10px; }
+  .expand-section p { font-size:0.85rem; line-height:1.6; white-space:pre-wrap; color:var(--text); }
+  .reply-text { background:#dafbe1; border:1px solid #aceebb; border-radius:var(--radius); padding:10px; font-size:0.85rem; color:#1a4023; white-space:pre-wrap; line-height:1.6; }
+  .note-area { width:100%; border:1px solid var(--border); border-radius:var(--radius); padding:10px; font-size:0.85rem; color:var(--text); background:var(--surface); resize:vertical; min-height:80px; font-family:var(--font); }
+  .note-area:focus { outline:2px solid var(--accent-blue); outline-offset:1px; }
+  .save-btn { margin-top:8px; padding:6px 16px; border-radius:var(--radius); border:none; background:var(--accent); color:#fff; font-size:0.82rem; cursor:pointer; }
+  .save-btn:hover { background:#166d32; }
+  .save-status { font-size:0.75rem; color:var(--accent); margin-left:8px; }
+  .empty-msg { text-align:center; padding:48px; color:var(--muted); font-size:0.88rem; }
+  .toggle-btn { background:none; border:none; cursor:pointer; color:var(--accent-blue); font-size:0.82rem; padding:0; }
+  @media (max-width:768px) {
+    .expand-grid { grid-template-columns:1fr; }
+    .filters { flex-direction:column; align-items:stretch; }
+    .filters input { width:100%; }
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h2>Aeroview Contacts — Campaign 2</h2>
+  <input type="password" id="pw-input" placeholder="Password" />
+  <button onclick="checkPassword()">Enter</button>
+  <span class="error" id="pw-error"></span>
+</div>
+
+<div id="app">
+  <header>
+    <span>👥 Contacts — Campaign 2 (Apollo)</span>
+    <div class="header-right">
+      <a href="dashboard2.html">← Dashboard</a>
+      <a href="history2.html">History →</a>
+    </div>
+  </header>
+  <div class="container">
+    <div class="filters">
+      <input type="text" id="search" placeholder="Search company or contact..." oninput="renderTable()" />
+      <select id="filter-status" onchange="renderTable()">
+        <option value="">All Statuses</option>
+        <option value="sent">Sent</option>
+        <option value="followedup">Followed Up</option>
+        <option value="replied">Replied</option>
+      </select>
+      <select id="filter-industry" onchange="renderTable()">
+        <option value="">All Industries</option>
+        <option value="land surveying companies">Land Surveying</option>
+        <option value="civil engineering firms">Civil Engineering</option>
+        <option value="general contractors">General Contractors</option>
+        <option value="construction companies">Construction</option>
+        <option value="earthworks excavation contractors">Earthworks</option>
+      </select>
+      <select id="filter-rank" onchange="renderTable()">
+        <option value="">All Ranks</option>
+        <option value="senior">Senior</option>
+        <option value="mid">Mid-level</option>
+      </select>
+      <button class="btn-clear" onclick="clearFilters()">Clear</button>
+      <span class="count-label" id="count-label"></span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th onclick="sortBy('name')">Company</th>
+            <th onclick="sortBy('contactName')">Contact</th>
+            <th onclick="sortBy('title')">Title</th>
+            <th>Email</th>
+            <th>LinkedIn</th>
+            <th onclick="sortBy('companySize')">Size</th>
+            <th onclick="sortBy('date')">Date Sent</th>
+            <th onclick="sortBy('industry')">Industry</th>
+            <th>Rank</th>
+            <th onclick="sortBy('status')">Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="contacts-table"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const PASSWORD = 'aeroview2026';
+const RAILWAY_URL = 'https://salesbot-production-2bd3.up.railway.app';
+
+function checkPassword() {
+  const val = document.getElementById('pw-input').value;
+  if (val === PASSWORD) {
+    sessionStorage.setItem('auth','1');
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+    loadContacts();
+  } else { document.getElementById('pw-error').textContent='Incorrect password.'; }
+}
+document.getElementById('pw-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkPassword();});
+if(sessionStorage.getItem('auth')==='1'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';}
+
+const INDUSTRY_LABELS={'land surveying companies':'Land Surveying','civil engineering firms':'Civil Engineering','general contractors':'General Contractors','construction companies':'Construction','earthworks excavation contractors':'Earthworks'};
+
+let allContacts=[];
+let sortKey='date';
+let sortDir=-1;
+let expandedIndex=null;
+
+async function loadContacts(){
+  try{
+    const r=await fetch('data/tracking.json');
+    const all=await r.json();
+    allContacts=all.filter(t=>t.campaign===2&&(!t.type||t.type==='new'));
+  }catch(e){allContacts=[];}
+  renderTable();
+}
+
+function getStatus(t){
+  if(t.replied) return 'replied';
+  if(t.followedUp2) return 'followedup';
+  if(t.followedUp) return 'followedup';
+  return 'sent';
+}
+
+function getStatusLabel(t){
+  if(t.replied) return 'Replied';
+  if(t.followedUp2) return 'Follow-up 2';
+  if(t.followedUp) return 'Follow-up 1';
+  return 'Sent';
+}
+
+function getStatusBadge(t){
+  if(t.replied) return 'replied';
+  if(t.followedUp2) return 'followup2';
+  if(t.followedUp) return 'followed-up';
+  return 'sent';
+}
+
+function clearFilters(){
+  document.getElementById('search').value='';
+  document.getElementById('filter-status').value='';
+  document.getElementById('filter-industry').value='';
+  document.getElementById('filter-rank').value='';
+  renderTable();
+}
+
+function sortBy(key){
+  if(sortKey===key) sortDir*=-1;
+  else { sortKey=key; sortDir=1; }
+  renderTable();
+}
+
+function renderTable(){
+  const search=document.getElementById('search').value.toLowerCase();
+  const filterStatus=document.getElementById('filter-status').value;
+  const filterIndustry=document.getElementById('filter-industry').value;
+  const filterRank=document.getElementById('filter-rank').value;
+
+  let filtered=allContacts.filter(t=>{
+    if(search&&!(
+      (t.name||'').toLowerCase().includes(search)||
+      (t.contactName||'').toLowerCase().includes(search)||
+      (t.email||'').toLowerCase().includes(search)
+    )) return false;
+    if(filterStatus&&getStatus(t)!==filterStatus) return false;
+    if(filterIndustry&&t.industry!==filterIndustry) return false;
+    if(filterRank&&t.contactRank!==filterRank) return false;
+    return true;
+  });
+
+  filtered.sort((a,b)=>{
+    const av=a[sortKey]||''; const bv=b[sortKey]||'';
+    return av<bv?-sortDir:av>bv?sortDir:0;
+  });
+
+  document.getElementById('count-label').textContent=`${filtered.length} contact${filtered.length!==1?'s':''}`;
+
+  const tbody=document.getElementById('contacts-table');
+  if(!filtered.length){
+    tbody.innerHTML=`<tr><td colspan="11" class="empty-msg">No contacts found.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML=filtered.map((t,i)=>{
+    const status=getStatus(t);
+    const statusLabel=getStatusLabel(t);
+    const statusBadge=getStatusBadge(t);
+    const rankBadge=t.contactRank||'mid';
+    const rankLabel=t.contactRank==='senior'?'Senior':'Mid-level';
+    const industryLabel=INDUSTRY_LABELS[t.industry]||t.industry||'—';
+    const linkedinBtn=t.linkedin?`<a href="${t.linkedin}" target="_blank" class="linkedin-link">View →</a>`:'—';
+    const isExpanded=expandedIndex===i;
+
+    return `
+      <tr class="${isExpanded?'expanded':''}" style="cursor:pointer" onclick="toggleExpand(${i})">
+        <td><strong>${t.name||'—'}</strong></td>
+        <td>${t.contactName||'—'}</td>
+        <td style="color:var(--muted);font-size:0.8rem">${t.title||'—'}</td>
+        <td style="color:var(--accent-blue);font-size:0.8rem">${t.email||'—'}</td>
+        <td>${linkedinBtn}</td>
+        <td style="color:var(--muted)">${t.companySize?t.companySize+' emp':'—'}</td>
+        <td style="color:var(--muted)">${t.date||'—'}</td>
+        <td style="font-size:0.78rem">${industryLabel}</td>
+        <td><span class="badge ${rankBadge}">${rankLabel}</span></td>
+        <td><span class="badge ${statusBadge}">${statusLabel}</span></td>
+        <td><button class="toggle-btn" onclick="event.stopPropagation();toggleExpand(${i})">${isExpanded?'▲':'▼'}</button></td>
+      </tr>
+      <tr class="expand-row ${isExpanded?'open':''}" id="expand-${i}">
+        <td colspan="11" class="expand-cell">
+          <div class="expand-grid">
+            <div class="expand-section">
+              <h4>Email Sent</h4>
+              <p>${t.body||'(body not available)'}</p>
+            </div>
+            ${t.replied&&t.replyText?`
+            <div class="expand-section">
+              <h4>Their Reply</h4>
+              <div class="reply-text">${t.replyText}</div>
+            </div>`:`
+            <div class="expand-section">
+              <h4>Notes</h4>
+              <textarea class="note-area" id="note-${i}" placeholder="Add a note about this contact...">${t.note||''}</textarea>
+              <div style="display:flex;align-items:center">
+                <button class="save-btn" onclick="saveNote(${i},'${t.email}','${t.date}')">Save Note</button>
+                <span class="save-status" id="save-status-${i}"></span>
+              </div>
+            </div>`}
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function toggleExpand(i){
+  expandedIndex=expandedIndex===i?null:i;
+  renderTable();
+}
+
+async function saveNote(i, email, date){
+  const note=document.getElementById(`note-${i}`)?.value||'';
+  const statusEl=document.getElementById(`save-status-${i}`);
+  statusEl.textContent='Saving...';
+
+  try{
+    const res=await fetch(`${RAILWAY_URL}/note`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email,date,note})
+    });
+    const data=await res.json();
+    if(data.success){
+      statusEl.textContent='Saved ✓';
+      // Update local data
+      const contact=allContacts.find(t=>t.email===email&&t.date===date);
+      if(contact) contact.note=note;
+      setTimeout(()=>statusEl.textContent='',3000);
+    } else {
+      statusEl.textContent='Error: '+data.message;
+      statusEl.style.color='var(--danger)';
+    }
+  }catch(e){
+    statusEl.textContent='Failed to save';
+    statusEl.style.color='var(--danger)';
+  }
+}
+
+if(sessionStorage.getItem('auth')==='1')loadContacts();
+</script>
+</body>
+</html>
