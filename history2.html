@@ -7,8 +7,7 @@
 <style>
   :root {
     --bg: #f6f8fa; --surface: #ffffff; --border: #e1e4e8; --text: #1c2128; --muted: #656d76;
-    --accent: #1a7f37; --accent-blue: #0969da; --accent-purple: #8250df; --warm: #9a6700;
-    --danger: #cf222e; --radius: 6px;
+    --accent: #1a7f37; --accent-blue: #0969da; --danger: #cf222e; --radius: 6px;
     --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     --shadow: 0 1px 3px rgba(27,31,36,0.07);
   }
@@ -25,6 +24,13 @@
   .header-right { display:flex; align-items:center; gap:16px; }
   header a { font-size:0.82rem; color:var(--accent-blue); text-decoration:none; }
   header a:hover { text-decoration:underline; }
+  .hamburger-wrap { position:relative; }
+  .hamburger-btn { background:none; border:1px solid var(--border); border-radius:var(--radius); padding:5px 10px; cursor:pointer; font-size:1.1rem; color:var(--text); line-height:1; }
+  .hamburger-btn:hover { background:var(--bg); }
+  .hamburger-menu { display:none; position:absolute; right:0; top:36px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:0 4px 12px rgba(27,31,36,0.12); min-width:160px; z-index:100; }
+  .hamburger-menu a { display:block; padding:10px 16px; font-size:0.85rem; color:var(--text); text-decoration:none; border-bottom:1px solid var(--border); }
+  .hamburger-menu a:last-child { border-bottom:none; }
+  .hamburger-menu a:hover { background:var(--bg); }
   .layout { display:grid; grid-template-columns:220px 1fr; min-height:calc(100vh - 57px); }
   .sidebar { background:var(--surface); border-right:1px solid var(--border); padding:16px 0; overflow-y:auto; }
   .period-item { padding:8px 16px; cursor:pointer; font-size:0.85rem; display:flex; justify-content:space-between; align-items:center; }
@@ -42,7 +48,6 @@
   .email-card-header { padding:12px 16px; cursor:pointer; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
   .email-card-header:hover { background:var(--bg); }
   .email-card-header .name { font-weight:500; font-size:0.9rem; flex:1; }
-  .email-card-header .contact { font-size:0.78rem; color:var(--muted); }
   .email-card-header .date { font-size:0.75rem; color:var(--muted); }
   .email-card-body { display:none; padding:16px; border-top:1px solid var(--border); background:var(--bg); }
   .email-card-body.open { display:block; }
@@ -76,8 +81,14 @@
   <header>
     <span>📋 Email History — Campaign 2 (Apollo)</span>
     <div class="header-right">
-      <a href="history.html">← Campaign 1 History</a>
-      <a href="dashboard2.html">← Dashboard</a>
+      <a href="dashboard.html">← Campaign 1</a>
+      <div class="hamburger-wrap">
+        <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()">☰</button>
+        <div class="hamburger-menu" id="hamburger-menu">
+          <a href="dashboard2.html">🚁 Dashboard</a>
+          <a href="contacts.html">👥 Contacts</a>
+        </div>
+      </div>
     </div>
   </header>
   <div class="layout">
@@ -109,50 +120,38 @@ function checkPassword() {
 document.getElementById('pw-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkPassword();});
 if(sessionStorage.getItem('auth')==='1'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';}
 
-const INDUSTRY_LABELS={'land surveying companies':'Land Surveying','civil engineering firms':'Civil Engineering','general contractors':'General Contractors','construction companies':'Construction','earthworks excavation contractors':'Earthworks'};
+function toggleMenu(){
+  const menu=document.getElementById('hamburger-menu');
+  menu.style.display=menu.style.display==='block'?'none':'block';
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('#hamburger-btn')&&!e.target.closest('#hamburger-menu')){
+    const menu=document.getElementById('hamburger-menu');
+    if(menu) menu.style.display='none';
+  }
+});
 
+const INDUSTRY_LABELS={'land surveying companies':'Land Surveying','civil engineering firms':'Civil Engineering','general contractors':'General Contractors','construction companies':'Construction','earthworks excavation contractors':'Earthworks'};
 let tracking=[];
 let currentView='day';
 let currentPeriod=null;
 
 async function loadHistory(){
   try{const r=await fetch('data/tracking.json');const all=await r.json();
-  // Campaign 2 only
   tracking=all.filter(t=>t.campaign===2);
   }catch(e){tracking=[];}
   renderSidebar();
 }
 
-function getWeek(dateStr){
-  const d=new Date(dateStr);
-  const day=d.getDay();
-  const diff=d.getDate()-day+(day===0?-6:1);
-  const mon=new Date(d.setDate(diff));
-  return mon.toISOString().split('T')[0];
-}
-function getMonth(dateStr){ return dateStr.slice(0,7); }
-function getPeriodKey(t){
-  const d=t.date||t.time?.split('T')[0]||'';
-  if(currentView==='day') return d;
-  if(currentView==='week') return getWeek(d);
-  return getMonth(d);
-}
+function getWeek(dateStr){const d=new Date(dateStr);const day=d.getDay();const diff=d.getDate()-day+(day===0?-6:1);const mon=new Date(d.setDate(diff));return mon.toISOString().split('T')[0];}
+function getMonth(dateStr){return dateStr.slice(0,7);}
+function getPeriodKey(t){const d=t.date||t.time?.split('T')[0]||'';if(currentView==='day')return d;if(currentView==='week')return getWeek(d);return getMonth(d);}
 function formatPeriodLabel(key){
-  if(currentView==='day') return new Date(key+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
-  if(currentView==='week'){
-    const start=new Date(key+'T12:00:00');
-    const end=new Date(start); end.setDate(end.getDate()+6);
-    return `${start.toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${end.toLocaleDateString('en-US',{month:'short',day:'numeric'})}`;
-  }
+  if(currentView==='day')return new Date(key+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+  if(currentView==='week'){const start=new Date(key+'T12:00:00');const end=new Date(start);end.setDate(end.getDate()+6);return`${start.toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${end.toLocaleDateString('en-US',{month:'short',day:'numeric'})}`;}
   return new Date(key+'-01T12:00:00').toLocaleDateString('en-US',{month:'long',year:'numeric'});
 }
-function setView(v,e){
-  currentView=v; currentPeriod=null;
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  e.target.classList.add('active');
-  renderSidebar();
-  document.getElementById('main-panel').innerHTML='<div class="empty-msg">Select a period from the left to view emails.</div>';
-}
+function setView(v,e){currentView=v;currentPeriod=null;document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');renderSidebar();document.getElementById('main-panel').innerHTML='<div class="empty-msg">Select a period from the left to view emails.</div>';}
 function renderSidebar(){
   const groups={};
   tracking.forEach(t=>{const key=getPeriodKey(t);if(!key)return;if(!groups[key])groups[key]=[];groups[key].push(t);});
@@ -164,7 +163,7 @@ function renderSidebar(){
     </div>`).join('');
 }
 function selectPeriod(key){
-  currentPeriod=key; renderSidebar();
+  currentPeriod=key;renderSidebar();
   const entries=tracking.filter(t=>getPeriodKey(t)===key).sort((a,b)=>new Date(b.time||b.date)-new Date(a.time||a.date));
   const newCount=entries.filter(t=>!t.type||t.type==='new').length;
   const fu1Count=entries.filter(t=>t.type==='followup1').length;
@@ -181,38 +180,36 @@ function selectPeriod(key){
       </div>
     </div>
     ${entries.map((t,i)=>{
-      const isNew=!t.type||t.type==='new';
-      const isFU1=t.type==='followup1';
+      const isNew=!t.type||t.type==='new';const isFU1=t.type==='followup1';
       const typeClass=isNew?'new':isFU1?'followup1':'followup2';
       const typeLabel=isNew?'New Outreach':isFU1?'Follow-up 1':'Follow-up 2';
       const repliedBadge=t.replied?'<span class="badge replied" style="margin-left:6px">Replied</span>':'';
       const rankBadge=t.contactRank?`<span class="badge ${t.contactRank}" style="margin-left:6px">${t.contactRank==='senior'?'Senior':'Mid'}</span>`:'';
-      const contactInfo=t.contactName?`<span class="contact" style="font-size:0.78rem;color:var(--muted)">${t.contactName}${t.title?' — '+t.title:''}</span>`:'';
-      return `
-        <div class="email-card">
-          <div class="email-card-header" onclick="toggleCard(${i})">
-            <div class="name">${t.name||'—'} ${contactInfo}</div>
-            <span class="badge ${typeClass}">${typeLabel}</span>
-            ${rankBadge}
-            ${repliedBadge}
-            <div class="date">${t.date||''}</div>
-          </div>
-          <div class="email-card-body" id="card-${i}">
-            <div class="field-label">Contact</div>
-            <div class="field-value">${t.contactName||'—'}${t.title?' — '+t.title:''}</div>
-            <div class="field-label">Email</div>
-            <div class="field-value">${t.email||'—'}</div>
-            ${t.linkedin?`<div class="field-label">LinkedIn</div><div class="field-value"><a href="${t.linkedin}" target="_blank" style="color:var(--accent-blue)">${t.linkedin}</a></div>`:''}
-            <div class="field-label">Industry</div>
-            <div class="field-value">${INDUSTRY_LABELS[t.industry]||t.industry||'—'}</div>
-            ${t.companySize?`<div class="field-label">Company Size</div><div class="field-value">${t.companySize} employees</div>`:''}
-            <div class="field-label">Subject</div>
-            <div class="field-value">${t.subject||'—'}</div>
-            <div class="field-label">Body</div>
-            <div class="field-value">${t.body||'(body not available for older entries)'}</div>
-            ${t.replied&&t.replyText?`<div class="field-label">Their Reply</div><div class="field-value reply-value">${t.replyText}</div>`:''}
-          </div>
-        </div>`;
+      const contactInfo=t.contactName?`<span style="font-size:0.78rem;color:var(--muted);margin-left:4px">${t.contactName}${t.title?' — '+t.title:''}</span>`:'';
+      return`<div class="email-card">
+        <div class="email-card-header" onclick="toggleCard(${i})">
+          <div class="name">${t.name||'—'} ${contactInfo}</div>
+          <span class="badge ${typeClass}">${typeLabel}</span>
+          ${rankBadge}
+          ${repliedBadge}
+          <div class="date">${t.date||''}</div>
+        </div>
+        <div class="email-card-body" id="card-${i}">
+          <div class="field-label">Contact</div>
+          <div class="field-value">${t.contactName||'—'}${t.title?' — '+t.title:''}</div>
+          <div class="field-label">Email</div>
+          <div class="field-value">${t.email||'—'}</div>
+          ${t.linkedin?`<div class="field-label">LinkedIn</div><div class="field-value"><a href="${t.linkedin}" target="_blank" style="color:var(--accent-blue)">${t.linkedin}</a></div>`:''}
+          <div class="field-label">Industry</div>
+          <div class="field-value">${INDUSTRY_LABELS[t.industry]||t.industry||'—'}</div>
+          ${t.companySize?`<div class="field-label">Company Size</div><div class="field-value">${t.companySize} employees</div>`:''}
+          <div class="field-label">Subject</div>
+          <div class="field-value">${t.subject||'—'}</div>
+          <div class="field-label">Body</div>
+          <div class="field-value">${t.body||'(body not available for older entries)'}</div>
+          ${t.replied&&t.replyText?`<div class="field-label">Their Reply</div><div class="field-value reply-value">${t.replyText}</div>`:''}
+        </div>
+      </div>`;
     }).join('')}`;
 }
 function toggleCard(i){document.getElementById('card-'+i).classList.toggle('open');}

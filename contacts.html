@@ -25,12 +25,18 @@
   .header-right { display:flex; align-items:center; gap:16px; }
   header a { font-size:0.82rem; color:var(--accent-blue); text-decoration:none; }
   header a:hover { text-decoration:underline; }
+  .hamburger-wrap { position:relative; }
+  .hamburger-btn { background:none; border:1px solid var(--border); border-radius:var(--radius); padding:5px 10px; cursor:pointer; font-size:1.1rem; color:var(--text); line-height:1; }
+  .hamburger-btn:hover { background:var(--bg); }
+  .hamburger-menu { display:none; position:absolute; right:0; top:36px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:0 4px 12px rgba(27,31,36,0.12); min-width:160px; z-index:100; }
+  .hamburger-menu a { display:block; padding:10px 16px; font-size:0.85rem; color:var(--text); text-decoration:none; border-bottom:1px solid var(--border); }
+  .hamburger-menu a:last-child { border-bottom:none; }
+  .hamburger-menu a:hover { background:var(--bg); }
   .container { max-width:1200px; margin:0 auto; padding:24px 20px; }
   .filters { display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap; align-items:center; }
   .filters input, .filters select { padding:7px 12px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.85rem; }
   .filters input { width:220px; }
   .filters input::placeholder { color:var(--muted); }
-  .filter-label { font-size:0.78rem; color:var(--muted); }
   .btn-clear { padding:7px 14px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); color:var(--muted); font-size:0.82rem; cursor:pointer; }
   .btn-clear:hover { background:var(--bg); }
   .count-label { font-size:0.78rem; color:var(--muted); margin-left:auto; }
@@ -40,7 +46,6 @@
   th:hover { color:var(--text); }
   td { padding:10px 14px; font-size:0.85rem; border-top:1px solid var(--border); vertical-align:top; }
   tr:hover td { background:#f8fafc; }
-  .expanded td { background:#f0f7ff; }
   .badge { display:inline-block; padding:2px 9px; border-radius:20px; font-size:0.72rem; font-weight:500; border:1px solid; white-space:nowrap; }
   .badge.sent { background:#ddf4ff; color:#0969da; border-color:#b6e3ff; }
   .badge.replied { background:#dafbe1; color:#1a7f37; border-color:#aceebb; }
@@ -85,8 +90,14 @@
   <header>
     <span>👥 Contacts — Campaign 2 (Apollo)</span>
     <div class="header-right">
-      <a href="dashboard2.html">← Dashboard</a>
-      <a href="history2.html">History →</a>
+      <a href="dashboard.html">← Campaign 1</a>
+      <div class="hamburger-wrap">
+        <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()">☰</button>
+        <div class="hamburger-menu" id="hamburger-menu">
+          <a href="dashboard2.html">🚁 Dashboard</a>
+          <a href="history2.html">📋 History</a>
+        </div>
+      </div>
     </div>
   </header>
   <div class="container">
@@ -153,6 +164,17 @@ function checkPassword() {
 document.getElementById('pw-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkPassword();});
 if(sessionStorage.getItem('auth')==='1'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';}
 
+function toggleMenu(){
+  const menu=document.getElementById('hamburger-menu');
+  menu.style.display=menu.style.display==='block'?'none':'block';
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('#hamburger-btn')&&!e.target.closest('#hamburger-menu')){
+    const menu=document.getElementById('hamburger-menu');
+    if(menu) menu.style.display='none';
+  }
+});
+
 const INDUSTRY_LABELS={'land surveying companies':'Land Surveying','civil engineering firms':'Civil Engineering','general contractors':'General Contractors','construction companies':'Construction','earthworks excavation contractors':'Earthworks'};
 
 let allContacts=[];
@@ -171,8 +193,7 @@ async function loadContacts(){
 
 function getStatus(t){
   if(t.replied) return 'replied';
-  if(t.followedUp2) return 'followedup';
-  if(t.followedUp) return 'followedup';
+  if(t.followedUp2||t.followedUp) return 'followedup';
   return 'sent';
 }
 
@@ -211,11 +232,7 @@ function renderTable(){
   const filterRank=document.getElementById('filter-rank').value;
 
   let filtered=allContacts.filter(t=>{
-    if(search&&!(
-      (t.name||'').toLowerCase().includes(search)||
-      (t.contactName||'').toLowerCase().includes(search)||
-      (t.email||'').toLowerCase().includes(search)
-    )) return false;
+    if(search&&!((t.name||'').toLowerCase().includes(search)||(t.contactName||'').toLowerCase().includes(search)||(t.email||'').toLowerCase().includes(search))) return false;
     if(filterStatus&&getStatus(t)!==filterStatus) return false;
     if(filterIndustry&&t.industry!==filterIndustry) return false;
     if(filterRank&&t.contactRank!==filterRank) return false;
@@ -236,9 +253,8 @@ function renderTable(){
   }
 
   tbody.innerHTML=filtered.map((t,i)=>{
-    const status=getStatus(t);
-    const statusLabel=getStatusLabel(t);
     const statusBadge=getStatusBadge(t);
+    const statusLabel=getStatusLabel(t);
     const rankBadge=t.contactRank||'mid';
     const rankLabel=t.contactRank==='senior'?'Senior':'Mid-level';
     const industryLabel=INDUSTRY_LABELS[t.industry]||t.industry||'—';
@@ -246,7 +262,7 @@ function renderTable(){
     const isExpanded=expandedIndex===i;
 
     return `
-      <tr class="${isExpanded?'expanded':''}" style="cursor:pointer" onclick="toggleExpand(${i})">
+      <tr style="cursor:pointer" onclick="toggleExpand(${i})">
         <td><strong>${t.name||'—'}</strong></td>
         <td>${t.contactName||'—'}</td>
         <td style="color:var(--muted);font-size:0.8rem">${t.title||'—'}</td>
@@ -295,6 +311,7 @@ async function saveNote(i, email, date){
   const note=document.getElementById(`note-${i}`)?.value||'';
   const statusEl=document.getElementById(`save-status-${i}`);
   statusEl.textContent='Saving...';
+  statusEl.style.color='var(--muted)';
 
   try{
     const res=await fetch(`${RAILWAY_URL}/note`,{
@@ -305,7 +322,7 @@ async function saveNote(i, email, date){
     const data=await res.json();
     if(data.success){
       statusEl.textContent='Saved ✓';
-      // Update local data
+      statusEl.style.color='var(--accent)';
       const contact=allContacts.find(t=>t.email===email&&t.date===date);
       if(contact) contact.note=note;
       setTimeout(()=>statusEl.textContent='',3000);
