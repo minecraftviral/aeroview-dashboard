@@ -3928,7 +3928,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:03:06.736Z"
   },
   {
     "type": "new",
@@ -3953,7 +3955,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:04:38.578Z"
   },
   {
     "type": "new",
@@ -3978,7 +3982,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:06:19.547Z"
   },
   {
     "type": "new",
@@ -4003,7 +4009,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:07:36.126Z"
   },
   {
     "type": "new",
@@ -4028,7 +4036,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:09:32.747Z"
   },
   {
     "type": "new",
@@ -4053,7 +4063,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:10:49.564Z"
   },
   {
     "type": "new",
@@ -4078,7 +4090,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:12:46.648Z"
   },
   {
     "type": "new",
@@ -4103,7 +4117,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:13:58.266Z"
   },
   {
     "type": "new",
@@ -4128,7 +4144,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:15:54.947Z"
   },
   {
     "type": "new",
@@ -4153,7 +4171,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:17:46.679Z"
   },
   {
     "type": "new",
@@ -4178,7 +4198,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:19:37.025Z"
   },
   {
     "type": "new",
@@ -4203,7 +4225,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:20:44.209Z"
   },
   {
     "type": "new",
@@ -4228,7 +4252,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:22:08.355Z"
   },
   {
     "type": "new",
@@ -4253,7 +4279,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:23:41.818Z"
   },
   {
     "type": "new",
@@ -4278,7 +4306,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-09-08T15:25:06.087Z"
   },
   {
     "type": "new",
@@ -4654,5 +4684,305 @@
     "status": "sent",
     "followedUp1": false,
     "followedUp2": false
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "316 Land Surveying",
+    "contactName": "Anderson",
+    "title": "President",
+    "contactRank": "senior",
+    "email": "anderson@316landsurveys.com",
+    "linkedin": "",
+    "industry": "land surveying companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy 316 Land Surveying,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:03:06.737Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "316 Land Surveying",
+    "contactName": "Jorge",
+    "title": "Surveyor",
+    "contactRank": "mid",
+    "email": "jorge@316landsurveys.com",
+    "linkedin": "",
+    "industry": "land surveying companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy 316 Land Surveying,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:04:38.578Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Bourland Land Surveying, LLC",
+    "contactName": "Phillip",
+    "title": "Owner",
+    "contactRank": "senior",
+    "email": "pbourland@bourlandsurveying.com",
+    "linkedin": "",
+    "industry": "land surveying companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Bourland Land Surveying, LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:06:19.547Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Civil-Surv Land Surveying",
+    "contactName": "Michael",
+    "title": "President",
+    "contactRank": "senior",
+    "email": "michael@civil-surv.net",
+    "linkedin": "",
+    "industry": "land surveying companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Civil-Surv Land Surveying,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:07:36.126Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Civil-Surv Land Surveying",
+    "contactName": "Brian",
+    "title": "Surveyor in Training",
+    "contactRank": "mid",
+    "email": "brian@civil-surv.net",
+    "linkedin": "",
+    "industry": "land surveying companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Civil-Surv Land Surveying,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:09:32.747Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Lone Star College",
+    "contactName": "Adam",
+    "title": "Professor, Program Director, Land Surveying and Mapping Technology",
+    "contactRank": "senior",
+    "email": "adam.salazar@lonestar.edu",
+    "linkedin": "",
+    "industry": "land surveying companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Lone Star College,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:10:49.564Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Windrose Surveying & Land Services, LLC",
+    "contactName": "Paul",
+    "title": "Survey Manager",
+    "contactRank": "mid",
+    "email": "paul.jurica@windroseservices.com",
+    "linkedin": "",
+    "industry": "land surveying companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Windrose Surveying & Land Services, LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:12:46.648Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Action Surveying LLC",
+    "contactName": "Roy",
+    "title": "Land Surveyor",
+    "contactRank": "mid",
+    "email": "roy@actionsurveying.com",
+    "linkedin": "",
+    "industry": "land surveying companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Action Surveying LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:13:58.266Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "DTS Engineering, Inc",
+    "contactName": "Michael",
+    "title": "VP-Civil Engineering",
+    "contactRank": "senior",
+    "email": "mlewis@dts-engineering.com",
+    "linkedin": "",
+    "industry": "civil engineering firms",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy DTS Engineering, Inc,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:15:54.947Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Dashiell Corporation",
+    "contactName": "Brian",
+    "title": "Vice President of Civil Engineering",
+    "contactRank": "senior",
+    "email": "brian.lumpkin@dashiell.com",
+    "linkedin": "",
+    "industry": "civil engineering firms",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Dashiell Corporation,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:17:46.679Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "J. Morales Civil Engineering",
+    "contactName": "Javier",
+    "title": "President",
+    "contactRank": "senior",
+    "email": "j.morales@jmoralesinc.com",
+    "linkedin": "",
+    "industry": "civil engineering firms",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy J. Morales Civil Engineering,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:19:37.025Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Entech Civil Engineers",
+    "contactName": "Sandy",
+    "title": "Vice President, H&H/Water Resources Engineering",
+    "contactRank": "senior",
+    "email": "spoleneni@entechhou.com",
+    "linkedin": "",
+    "industry": "civil engineering firms",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Entech Civil Engineers,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:20:44.209Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Walter P Moore",
+    "contactName": "Doug",
+    "title": "Senior Principal: Civil Engineering",
+    "contactRank": "senior",
+    "email": "dcoenen@walterpmoore.com",
+    "linkedin": "",
+    "industry": "civil engineering firms",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Walter P Moore,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:22:08.355Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "PT&C|LWG Forensic Consulting Services",
+    "contactName": "Van",
+    "title": "Senior Vice President/ Director of Civil/Structural Forensic Engineering",
+    "contactRank": "senior",
+    "email": "van.fisher@envistaforensics.com",
+    "linkedin": "",
+    "industry": "civil engineering firms",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy PT&C|LWG Forensic Consulting Services,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:23:41.818Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Texas Sports & Civil Engineering",
+    "contactName": "Kenneth",
+    "title": "President / Senior Civil Engineer",
+    "contactRank": "senior",
+    "email": "k.jurado@texsce.com",
+    "linkedin": "",
+    "industry": "civil engineering firms",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Texas Sports & Civil Engineering,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-09-08",
+    "time": "2026-09-08T15:25:06.087Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
   }
 ]
