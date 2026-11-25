@@ -20295,7 +20295,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-11-25T15:02:23.486Z"
   },
   {
     "type": "new",
@@ -20320,7 +20322,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-11-25T15:03:41.275Z"
   },
   {
     "type": "new",
@@ -20345,7 +20349,9 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-11-25T15:05:38.576Z"
   },
   {
     "type": "new",
@@ -20370,6 +20376,88 @@
     "replyDate": null,
     "status": "sent",
     "followedUp1": false,
-    "followedUp2": false
+    "followedUp2": false,
+    "followedUp": true,
+    "followUpDate": "2026-11-25T15:07:27.649Z"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Saulsbury",
+    "contactName": "John",
+    "title": "Director, Mechanical / Civil Engineering",
+    "contactRank": "senior",
+    "email": "jreddin@saulsbury.com",
+    "linkedin": "http://www.linkedin.com/in/john-reddin-p-e-a7a9754",
+    "industry": "civil engineering firms",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Saulsbury,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-11-25",
+    "time": "2026-11-25T15:02:23.486Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Glass Ceiling Construction",
+    "contactName": "Timesha",
+    "title": "Owner and CEO",
+    "contactRank": "senior",
+    "email": "timesha.beattie@hccs.edu",
+    "linkedin": "http://www.linkedin.com/in/timesha-beattie-28b083109",
+    "industry": "construction companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Glass Ceiling Construction,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-11-25",
+    "time": "2026-11-25T15:03:41.275Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Sims Luxury Builders",
+    "contactName": "Nathan",
+    "title": "Vice President, Construction",
+    "contactRank": "senior",
+    "email": "nathan@simsbuilders.com",
+    "linkedin": "",
+    "industry": "construction companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Sims Luxury Builders,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-11-25",
+    "time": "2026-11-25T15:05:38.576Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
+  },
+  {
+    "type": "followup1",
+    "campaign": 2,
+    "name": "Harper Brothers Construction LLC",
+    "contactName": "Victor",
+    "title": "Estimator",
+    "contactRank": "mid",
+    "email": "victor.fricke@harperbro.com",
+    "linkedin": "http://www.linkedin.com/in/victor-fricke-46484a4b",
+    "industry": "construction companies",
+    "city": "",
+    "subject": "Re: Following up — Aeroview Drone Technologies",
+    "body": "Howdy Harper Brothers Construction LLC,\n\nJust wanted to follow up on my previous email about Aeroview Drone Technologies.",
+    "date": "2026-11-25",
+    "time": "2026-11-25T15:07:27.649Z",
+    "replied": false,
+    "replyText": null,
+    "replyDate": null,
+    "status": "sent"
   }
 ]
